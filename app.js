@@ -35,15 +35,15 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 
 // --- ATAC
-app.get('/linee', routes.elencoLinee);
-app.get('/linee/:id', routes.dettagliLinea);
+app.get('/linee', routes.linee.elencoLinee);
+app.get('/linee/:id', routes.linee.dettagliLinea);
 app.post('/segnalazioni/', routes.aggiungiSegnalazione);
 
 // --- TWITTER
 //app.get('/twitterCheck', routes.twitterCheck);
-app.get('/twitter/lookup', routes.getAllProfilesTwitter);
-app.get('/twitter/:screenName', routes.getProfileTwitter);
-app.get('/twitter/:screenName/tweets', routes.getTweets);
+app.get('/twitter/lookup', routes.twitter.getAllProfiles);
+app.get('/twitter/:screenName', routes.twitter.getProfile);
+app.get('/twitter/:screenName/tweets', routes.twitter.getTweets);
 
 
 
