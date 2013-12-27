@@ -30,7 +30,7 @@
     <Compile Include="routes\user.js" />
     <Compile Include="utils\twitter.js" />
     <Content Include="views\index.jade" />
-    <Compile Include="public\javascripts\app.js" />
+    <Compile Include="public\javascripts\main.js" />
     <Compile Include="public\javascripts\controllers.js" />
     <Compile Include="public\javascripts\services.js" />
     <Content Include="public\partials\new.html" />
