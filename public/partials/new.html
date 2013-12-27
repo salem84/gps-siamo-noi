@@ -1,19 +1,19 @@
 <div class="page-header">
-          <h1>Segnala una linea</h1>
-        </div>
-        <form role="form" ng-submit="creaSegnalazione()">
-          <span  class="nullable">
+    <h1>Segnala una linea</h1>
+</div>
+<form role="form" ng-submit="creaSegnalazione()">
+    <span class="nullable">
         <select ng-model="selectedLinea" ng-options="l.name for l in linee">
-          <option value="">-- scegli linea --</option>
+            <option value="">-- scegli linea --</option>
         </select>
-        
+        <br />
         <select ng-model="selectedDirezione" ng-options="l.name for l in direzioni">
-          <option value="">-- scegli direzione --</option>
+            <option value="">-- scegli direzione --</option>
         </select>
-
+        <br />
         <select ng-model="selectedFermata" ng-options="l.name for l in fermate">
-          <option value="">-- scegli fermata --</option>
+            <option value="">-- scegli fermata --</option>
         </select>
 
-      </span><br/>
-        </form>
+    </span><br />
+</form>
