@@ -29,7 +29,7 @@
     <Compile Include="routes\linee.js" />
     <Compile Include="routes\twitter.js" />
     <Compile Include="routes\user.js" />
-    <Compile Include="utils\twitter.js" />
+    <Compile Include="utils\twitter_config.js" />
     <Content Include="views\index.jade" />
     <Compile Include="public\javascripts\main.js" />
     <Compile Include="public\javascripts\controllers.js" />

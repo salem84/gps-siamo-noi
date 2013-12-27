@@ -16,5 +16,7 @@
         </select>
 
     </span><br />
-    <input type="button" name="invia"/>
+    <span>{{caratteriRimanenti()}}</span>
+    <textarea cols="40" rows="5" ng-model="segnalazione"></textarea>
+    <button ng-click="submitSegnalazione()" >Invia</button>
 </form>

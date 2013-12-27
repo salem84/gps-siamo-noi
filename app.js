@@ -44,7 +44,7 @@ app.post('/segnalazioni/', routes.aggiungiSegnalazione);
 app.get('/twitter/lookup', routes.twitter.getAllProfiles);
 app.get('/twitter/:screenName', routes.twitter.getProfile);
 app.get('/twitter/:screenName/tweets', routes.twitter.getTweets);
-
+app.post('/twitter', routes.twitter.sendTweet);
 
 
 

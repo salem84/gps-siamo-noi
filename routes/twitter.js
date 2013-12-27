@@ -1,4 +1,4 @@
-﻿var T = require('../utils/twitter');
+﻿var T = require('../utils/twitter_config');
 
 exports.twitterCheck = function (req, res) {
     // twitter.verifyCredentials(function (error, data) {
@@ -90,6 +90,19 @@ exports.getAllProfiles = function(req, res) {
     T.get('users/lookup', { screen_name: screenNamesCommaSeparated }, function(err, reply) {
         res.json(reply);
     });
+};
+
+exports.sendTweet = function(req, res) {
+    var msg = '';//req.body.msg;
+
+    T.post('statuses/update', { status: msg }, function(err, reply) {
+        if (err)
+            res.send(500);
+        else
+            res.send(200);
+    });
+
+    
 };
 
 function parseTwitterDate(text) {
