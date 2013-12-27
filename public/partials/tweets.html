@@ -1,0 +1,11 @@
+<div class="page-header">
+	<h1>Profilo {{profilo}}</h1>
+</div>
+<ul>
+<li ng-repeat="t in tweets">
+<span>{{t.data | date:'dd/MM/yyyy @ HH:mm'}}</span>
+<span>{{t.testo}}</span>
+</li>
+</ul>
+
+Ultimo Id {{lastId()}}
