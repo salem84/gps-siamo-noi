@@ -88,7 +88,19 @@ exports.getAllProfiles = function(req, res) {
     var screenNames = getValidTwitterScreenNames();
     var screenNamesCommaSeparated = screenNames.join(",");
     T.get('users/lookup', { screen_name: screenNamesCommaSeparated }, function(err, reply) {
-        res.json(reply);
+        var array = [];
+        for (i in reply) {
+            var r = reply[i];
+            var profiles = {
+                id: r.id,
+                name : r.name,
+                screenName : r.screen_name,
+                image: r.profile_image_url,
+                color: r.profile_link_color
+            };
+            array.push(profiles);
+        }
+        res.json(array);
     });
 };
 
@@ -110,7 +122,7 @@ function parseTwitterDate(text) {
 }
 
 function getValidTwitterScreenNames() {
-	return ['infoatac', 'disinfoatac'];
+	return ['infoatac', 'disinfoatac', 'romalido'];
 }
 
 function isValidTwitter(screenName) {

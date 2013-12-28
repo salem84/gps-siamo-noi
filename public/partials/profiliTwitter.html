@@ -2,7 +2,13 @@
 	<h1>Profili twitter</h1>
 </div>
 <div>
-<ul>
-<li ng-repeat="p in profili"><a href="/#/profiliTwitter/{{p.screen_name}}" >{{p.screen_name}}</a></li>
+<ul class="twitter-profili">
+    <li ng-repeat="p in profili">
+        <div>
+            <img ng-src="{{p.image}}"/>
+            <a href="/#/profiliTwitter/{{p.screenName}}">@{{p.screenName}}</a>
+        </div>
+        
+    </li>
 </ul>
 </div>

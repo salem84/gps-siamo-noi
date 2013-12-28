@@ -18,5 +18,11 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 			div.navbar-header
 				a.navbar-brand(href='#/')= title
+			div.collapse.navbar-collapse
+				ul.nav.navbar-nav
+					li
+						a(href='#/segnala')='Segnala'
+					li
+						a(href='#/profiliTwitter')='Twitter'
 		div.container
 			div(ng-view)

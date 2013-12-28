@@ -60,11 +60,11 @@ function NuovaSegnalazioneCtrl($scope, Twitter) {
 	    }
          
 	    if ($scope.segnalazione == '') {
-	        $scope.segnalazione = riepilogo + ' |';
+	        $scope.segnalazione = riepilogo + ' | ';
 	    } else {
 	        var index = $scope.segnalazione.lastIndexOf('|') +1; 
 	        var addedText = $scope.segnalazione.substr(index);
-	        $scope.segnalazione = riepilogo + ' |' + addedText;
+	        $scope.segnalazione = riepilogo + ' | ' + addedText;
 	    }
 	    
 	}

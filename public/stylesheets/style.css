@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.twitter-profili li {
+    list-style: none;
+}
+
+.twitter-profili li {
+    border: 2px solid black;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
