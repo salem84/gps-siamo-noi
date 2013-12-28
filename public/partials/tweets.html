@@ -1,15 +1,22 @@
 <div class="page-header">
 	<h1>Profilo {{profilo}}</h1>
 </div>
-<ul>
-<li ng-repeat="t in tweets">
-<span>{{t.data | date:'dd/MM/yyyy @ HH:mm'}}</span>
-<span>{{t.testo}}</span>
-</li>
-</ul>
+<ol class="stream-items">
+    <li class="stream-item" ng-repeat="t in tweets">
+        <div class="tweet">
+            <div class="stream-item-header">
+                <img class="avatar js-action-profile-avatar" ng-src="{{t.user.image}}" alt="">
+                <small class="time">
+                    <span>{{t.data | date:'dd/MM/yyyy @ HH:mm'}}</span>
+                </small>
+            </div>
+            <p class="tweet-text">{{t.testo}}</p>
+        </div>
+    </li>
+</ol>
 
 Ultimo Id {{lastId()}}
 
 <ul class="pager">
-    <li class="previous"><a href="#">&larr; Più vecchi</a></li>
+    <li class="previous"><a href="#">&larr; Pi&ugrave; vecchi</a></li>
 </ul>

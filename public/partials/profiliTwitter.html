@@ -3,12 +3,12 @@
 </div>
 <div>
 <ul class="twitter-profili">
-    <li ng-repeat="p in profili">
+    <li ng-repeat="p in profili" ng-style="{ 'border-color': p.bg_color }">
         <div>
-            <img ng-src="{{p.image}}"/>
-            <a href="/#/profiliTwitter/{{p.screenName}}">@{{p.screenName}}</a>
+            <img ng-src="{{p.image}}" />
+            <a href="/#/profiliTwitter/{{p.screenName}}" ng-style="{ 'color': p.fg_color }">@{{p.screenName}}</a>
         </div>
-        
+
     </li>
 </ul>
 </div>

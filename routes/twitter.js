@@ -55,16 +55,16 @@ exports.getTweets = function(req, res) {
     T.get('statuses/user_timeline', { screen_name: screenName, count: pageSize, max_id: maxId }, function(err, reply) {
         var array = [];
         for (i in reply) {
+            var tweet;
             var r = reply[i];
-            var tweet = {
-                id: r.id,
-                data: parseTwitterDate(r.created_at),
-                testo: r.text,
-                // user: {
-	  		// 	name: r.user.name,
-	  		// 	img: r.user.profile_image_url
-	  		// }
-            };
+            //E' un retweet
+            if (r.retweeted_status) {
+                tweet = parseTweet(r.retweeted_status);
+            } else {
+                tweet = parseTweet(r);
+            }
+
+            
             array.push(tweet);
         }
         res.json(array);
@@ -96,7 +96,8 @@ exports.getAllProfiles = function(req, res) {
                 name : r.name,
                 screenName : r.screen_name,
                 image: r.profile_image_url,
-                color: r.profile_link_color
+                bg_color: '#'+r.profile_background_color,
+                fg_color: '#'+r.profile_link_color
             };
             array.push(profiles);
         }
@@ -133,4 +134,23 @@ function isValidTwitter(screenName) {
 		return false;
 	else
 		return true;
+}
+
+function parseTweet(t) {
+    var tweet = {
+                id: t.id,
+                data: parseTwitterDate(t.created_at),
+                user: {
+                    image: t.user.profile_image_url,
+                    screenName: t.user.screen_name,
+                    displayName: t.user.name
+                },
+                
+                testo: t.text, //attenzione c'è anche l'utente
+                // user: {
+	  		// 	name: r.user.name,
+	  		// 	img: r.user.profile_image_url
+	  		// }
+            };
+    return tweet;
 }

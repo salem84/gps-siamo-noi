@@ -19,3 +19,25 @@ a {
     margin-bottom: 15px;
     padding: 10px;
 }
+
+
+
+.tweet {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.stream-items {
+    margin-left: 0;
+    list-style: none;
+}
+
+.stream-item {
+    margin-bottom: 10px;
+}
+
+.stream-item-header .avatar {
+    float: left;
+    margin-top: 3px;
+    margin-left: -58px;
+}
