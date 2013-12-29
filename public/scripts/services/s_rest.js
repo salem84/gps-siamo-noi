@@ -1,4 +1,7 @@
-angular.module('twitterServices', ['ngResource']).
+'use strict';
+
+angular.module('gsn.services.rest', ['ngResource']).
+//angular.module('gpsSiamoNoiApp', ['ngResource']).
     factory('Twitter', function($resource) {
         return $resource('twitter/:screenName', {}, {
             query: { method: 'GET', params: { screenName: 'lookup' }, isArray: true },

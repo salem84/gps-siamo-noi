@@ -38,7 +38,7 @@ app.get('/users', user.list);
 // --- ATAC
 app.get('/linee', routes.linee.elencoLinee);
 app.get('/linee/:id', routes.linee.dettagliLinea);
-app.post('/segnalazioni/', routes.aggiungiSegnalazione);
+//app.post('/segnalazioni/', routes.aggiungiSegnalazione);
 
 // --- TWITTER
 //app.get('/twitterCheck', routes.twitterCheck);

@@ -5,7 +5,7 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
 		title= title
 
-		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
@@ -16,23 +16,32 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		
 		script(src='/lib/ui-bootstrap-tpls-0.9.0.min.js')
 		script(src='/lib/scrollability.min.js')
-		script(src='/javascripts/main.js')
-		script(src='/javascripts/services.js')
-		script(src='/javascripts/controllers.js')
-	body(ng-controller='NuovaSegnalazioneCtrl')
-		nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
-			div.navbar-header
-				button.navbar-toggle(type='button' data-toggle='collapse' data-target='#bs-main-nav')
-					span.sr-only Toggle navigation
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
-				a.navbar-brand(href='#/')= title
-			div.collapse.navbar-collapse#bs-main-nav
-				ul.nav.navbar-nav
-					li
-						a(href='#/segnala')='Segnala'
-					li
-						a(href='#/profiliTwitter')='Twitter'
+		
+		script(src='/scripts/utils.js')
+		script(src='/scripts/main.js')
+
+		script(src='/scripts/services/s_rest.js')
+		script(src='/scripts/services/s_segnalazioni.js')
+
+		script(src='/scripts/controllers/c_segnalazioni_lista.js')
+		script(src='/scripts/controllers/c_segnalazioni_nuovo.js')
+		script(src='/scripts/controllers/c_twitter_profili.js')
+		script(src='/scripts/controllers/c_twitter_tweets.js')
+	body(ng-app='gpsSiamoNoiApp')
+		nav.navbar.navbar-inverse.navbar-fixed-bottom(role='navigation')
+			div.container
+				div.navbar-header
+					button.navbar-toggle(type='button' data-toggle='collapse' data-target='#bs-main-nav')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='#/')= title
+				div.collapse.navbar-collapse#bs-main-nav
+					ul.nav.navbar-nav.navbar-right
+						li
+							a(href='#/segnalazioni/nuovo')='Segnala'
+						li
+							a(href='#/twitter/profili')='Twitter'
 		div.container
 			div(ng-view)
