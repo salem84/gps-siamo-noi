@@ -12,6 +12,10 @@ var app = angular.module('gpsSiamoNoiApp', [
 
 app.config(function($routeProvider) {
     $routeProvider.
+        when('/', {
+             templateUrl: 'views/home.html', 
+             controller: 'HomeCtrl'
+        }).
         when('/segnalazioni', {
              templateUrl: 'views/list.html', 
              controller: 'SegnalazioniListCtrl'
@@ -32,7 +36,11 @@ app.config(function($routeProvider) {
              templateUrl: 'views/segnalazioni/nuovo/2_scegli_fermata.html', 
              controller: 'NuovaSegnalazione_FermataCtrl'
         }).
-        otherwise({ redirectTo: '/segnalazioni/nuovo' });
+        when('/segnalazioni/nuovo/riepilogo', {
+             templateUrl: 'views/segnalazioni/nuovo/3_riepilogo.html', 
+             controller: 'NuovaSegnalazione_RiepilogoCtrl'
+        }).
+        otherwise({ redirectTo: '/' });
 });
 
 app.config(['$httpProvider', function ($httpProvider) {

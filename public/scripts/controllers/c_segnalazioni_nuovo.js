@@ -46,18 +46,9 @@ app.controller('NuovaSegnalazione_FermataCtrl', function($scope, $location, Line
     $scope.segnalazione = DatiInvioSegnalazione;
     $scope.currentStep = 2;
 
-    $scope.caratteriRimanenti = function() {
-        var len = $scope.segnalazione.length;
-        return 140 - len;
-    };
-
-    $scope.submitSegnalazione = function() {
-        Twitter.post({ msg: 'prova' });
-    };
-       
-
     $scope.cmdSelezionaDirezione = function(index) {
         $scope.segnalazione.selectedDirezione = $scope.segnalazione.direzioni[index];
+        $scope.segnalazione.selectedFermata = null;
 
     };
 
@@ -65,6 +56,35 @@ app.controller('NuovaSegnalazione_FermataCtrl', function($scope, $location, Line
         $scope.segnalazione.selectedFermata = $scope.segnalazione.selectedDirezione.fermate[index];
         $scope.segnalazione.selectedFermata.index = index;
     };
-        
 
+    $scope.cmdGoRiepilogo = function() {
+        $location.path('/segnalazioni/nuovo/riepilogo');
+    };
+});
+
+app.controller('NuovaSegnalazione_RiepilogoCtrl', function($scope, $location, Linee, Twitter, DatiInvioSegnalazione) {
+    $scope.segnalazione = DatiInvioSegnalazione;
+    $scope.currentStep = 3;
+    
+    //$scope.caratteriRimanenti = function() {
+    //    if ($scope.segnalazione) {
+    //        var len = $scope.segnalazione.getAnteprima();
+    //        return 140 - len;
+    //    } else {
+    //        return 0;
+    //    }
+    //};
+
+    //$scope.anteprima = function() {
+    //    if ($scope.segnalazione) {
+    //        return $scope.segnalazione.getAnteprima();
+    //    } else {
+    //        return '';
+    //    }
+    //};
+    
+    
+    $scope.submitSegnalazione = function() {
+        Twitter.post({ msg: 'prova' });
+    };
 });

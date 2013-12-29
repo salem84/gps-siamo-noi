@@ -40,6 +40,7 @@
     <Compile Include="routes\user.js" />
     <Compile Include="utils\twitter_config.js" />
     <Content Include="linee\3.json" />
+    <Content Include="public\views\home.html" />
     <Content Include="public\views\new.html" />
     <Content Include="public\views\segnala.html" />
     <Content Include="public\views\segnalazioni\nuovo\2_scegli_fermata.html" />

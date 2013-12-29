@@ -23,6 +23,9 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		script(src='/scripts/services/s_rest.js')
 		script(src='/scripts/services/s_segnalazioni.js')
 
+		script(src='/scripts/directives/html.js')
+
+		script(src='/scripts/controllers/c_home.js')
 		script(src='/scripts/controllers/c_segnalazioni_lista.js')
 		script(src='/scripts/controllers/c_segnalazioni_nuovo.js')
 		script(src='/scripts/controllers/c_twitter_profili.js')
@@ -43,5 +46,6 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 							a(href='#/segnalazioni/nuovo')='Segnala'
 						li
 							a(href='#/twitter/profili')='Twitter'
-		div.container
-			div(ng-view)
+		//-div.container
+		//-	div(ng-view)
+		div(ng-view)
