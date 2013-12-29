@@ -25,24 +25,32 @@
     <Content Include="BuildProcessTemplates\GitContinuousDeploymentTemplate.12.xaml" />
     <Content Include="package.json" />
     <Compile Include="app.js" />
+    <Compile Include="public\lib\scrollability.js" />
+    <Compile Include="public\lib\scrollability.min.js" />
+    <Compile Include="public\lib\ui-bootstrap-tpls-0.9.0.js" />
+    <Compile Include="public\lib\ui-bootstrap-tpls-0.9.0.min.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\linee.js" />
     <Compile Include="routes\twitter.js" />
     <Compile Include="routes\user.js" />
     <Compile Include="utils\twitter_config.js" />
+    <Content Include="linee\3.json" />
+    <Content Include="public\partials\new.html" />
     <Content Include="views\index.jade" />
     <Compile Include="public\javascripts\main.js" />
     <Compile Include="public\javascripts\controllers.js" />
     <Compile Include="public\javascripts\services.js" />
-    <Content Include="public\partials\new.html" />
+    <Content Include="public\partials\segnala.html" />
     <Content Include="public\partials\profiliTwitter.html" />
     <Content Include="public\partials\tweets.html" />
     <Content Include="public\stylesheets\style.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BuildProcessTemplates\" />
+    <Folder Include="public\lib\" />
     <Folder Include="public\" />
     <Folder Include="public\javascripts" />
+    <Folder Include="linee\" />
     <Folder Include="public\partials" />
     <Folder Include="public\stylesheets" />
     <Folder Include="routes" />

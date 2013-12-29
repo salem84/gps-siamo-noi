@@ -1,10 +1,10 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 .twitter-profili li {
@@ -40,4 +40,47 @@ a {
     float: left;
     margin-top: 3px;
     margin-left: -58px;
+}
+
+
+#nuova-segnalazione-view .col-xs-12 {
+    padding: 15px 0px;
+}
+
+#nuova-segnalazione-view .fermata {
+    position: relative;
+    top: -1px;
+    border-top: 1px solid #ccc;
+    padding: 9px 12px;
+    font-weight: bold;
+    background: #fff;
+}
+
+    #nuova-segnalazione-view .fermata:last-child {
+        border-bottom: 1px solid #ccc;
+    }
+
+.fermata .check {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #444;
+    background-color: transparent;
+    margin-right: 20px;
+    position: relative;
+    top: 4px;
+    float: left;
+}
+
+    .fermata .check.selected {
+        background-color: green;
+    }
+
+
+#terzo-step {
+    height: 200px;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    /*    overflow: scroll;
+    -webkit-overflow-scrolling: touch;*/
 }

@@ -7,4 +7,7 @@ angular.module('twitterServices', ['ngResource']).
     }).
     factory('Tweets', function($resource) {
         return $resource('twitter/:screenName/tweets', {});
+    }).
+    factory('Linee', function($resource) {
+        return $resource('linee/:id', {});
     });
