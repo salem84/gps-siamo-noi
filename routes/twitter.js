@@ -106,25 +106,52 @@ exports.getAllProfiles = function(req, res) {
 };
 
 exports.sendTweet = function(req, res) {
-    var msg = '';//req.body.msg;
+    var isStandard;
+    if (req.body.isStandard == false) {
+        isStandard = false;
+    } else {
+        isStandard = true;
+    }
 
-    T.post('statuses/update', { status: msg }, function(err, reply) {
-        if (err)
-            res.send(500);
-        else
-            res.send(200);
-    });
+    var msg;
+    if (isStandard) {
+        msg = getStringNewPostTemplate();
 
-    
+        msg = msg.replace("##LINEA##", req.body.selectedLinea);
+        if (req.body.selectedDirezione) {
+            msg = msg.replace("##DIREZIONE##", req.body.selectedDirezione);
+        }
+        if (req.body.selectedFermata) {
+            msg = msg.replace("##FERMATA##", req.body.selectedFermata);
+        }
+        
+    } else {
+        msg = req.body.note;
+    }
+
+
+    res.send(msg);
+    //T.post('statuses/update', { status: msg }, function(err, reply) {
+    //    if (err)
+    //        res.send(500);
+    //    else
+    //        res.send(200);
+    //});
+
+
 };
 
 exports.getTemplateTweet = function(req, res) {
     var result = {
-        newPost : '#test ##LINEA## --> ##DIREZIONE## @ ##FERMATA##'
+        newPost : getStringNewPostTemplate()
         
     };
     res.json(result);
 };
+
+function getStringNewPostTemplate() {
+    return '#test ##LINEA## --> ##DIREZIONE## @ ##FERMATA##';
+}
 
 function parseTwitterDate(text) {
 	return new Date(Date.parse(text.replace(/( +)/, ' UTC$1')));

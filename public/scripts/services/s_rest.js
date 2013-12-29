@@ -5,7 +5,8 @@ angular.module('gsn.services.rest', ['ngResource']).
     factory('Twitter', function($resource) {
         return $resource('twitter/:command', {}, {
             lookup: { method: 'GET', params: { command: 'lookup' }, isArray: true },
-            template: { method: 'GET', params: { command: 'template' } }
+            template: { method: 'GET', params: { command: 'template' } },
+            post: { method: 'POST', params: { command: ''}}
         });
     }).
     factory('Tweets', function($resource) {

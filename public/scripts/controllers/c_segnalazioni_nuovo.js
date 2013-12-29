@@ -62,29 +62,19 @@ app.controller('NuovaSegnalazione_FermataCtrl', function($scope, $location, Line
     };
 });
 
-app.controller('NuovaSegnalazione_RiepilogoCtrl', function($scope, $location, Linee, Twitter, DatiInvioSegnalazione) {
+app.controller('NuovaSegnalazione_RiepilogoCtrl', function($scope, $location, Twitter, DatiInvioSegnalazione) {
     $scope.segnalazione = DatiInvioSegnalazione;
     $scope.currentStep = 3;
-    
-    //$scope.caratteriRimanenti = function() {
-    //    if ($scope.segnalazione) {
-    //        var len = $scope.segnalazione.getAnteprima();
-    //        return 140 - len;
-    //    } else {
-    //        return 0;
-    //    }
-    //};
 
-    //$scope.anteprima = function() {
-    //    if ($scope.segnalazione) {
-    //        return $scope.segnalazione.getAnteprima();
-    //    } else {
-    //        return '';
-    //    }
-    //};
+    var request = {        
+        note : $scope.segnalazione.note,
+        selectedLinea: $scope.segnalazione.selectedLinea,
+        selectedDirezione: $scope.segnalazione.selectedDirezione.name,
+        selectedFermata: $scope.segnalazione.selectedFermata.name
+    };
     
     
     $scope.submitSegnalazione = function() {
-        Twitter.post({ msg: 'prova' });
+        Twitter.post(request);
     };
 });
