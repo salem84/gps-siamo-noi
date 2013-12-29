@@ -14,19 +14,26 @@ a {
 /* PAGINA TWITTER */
 
 
-.twitter-profili li {
+.twitter-profilo {
     list-style: none;
-}
-
-.twitter-profili li {
-    border: 2px solid black;
+    /*border: 2px solid black;
     border-radius: 6px;
     -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
+    -webkit-border-radius: 6px;*/
     margin-bottom: 15px;
     padding: 10px;
+    text-align: center;
+}
+.twitter-profilo p {
+    padding-left: 5px;
+    padding-top: 5px;
+    margin-bottom: 0px;
+    display: block;
 }
 
+.twitter-profilo {
+    cursor: pointer;
+}
 
 
 .tweet {
@@ -49,7 +56,26 @@ a {
     margin-left: -58px;
 }
 
+@media screen and (max-width: 600px) {
+    .twitter-profili {
+        padding: 0px;
+    }
 
+    .twitter-profili li {
+        /*float: left;
+        width: 45%;*/
+        margin: 10px;
+        
+    }
+
+    .page-content {
+        margin-top: 10px;
+    }
+
+    .pagination-panel {
+        margin-bottom: 100px;
+    }
+}
 /* FINE PAGINA TWITTER */
 
 

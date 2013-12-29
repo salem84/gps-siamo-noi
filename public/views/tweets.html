@@ -1,26 +1,27 @@
-<div class="container">
-    <div class="page-header">
-        <h1>Profilo {{profilo}}</h1>
-    </div>
-    <ol class="stream-items">
-        <li class="stream-item" ng-repeat="t in tweets">
-            <div class="tweet">
-                <div class="stream-item-header">
-                    <img class="avatar js-action-profile-avatar" ng-src="{{t.user.image}}" alt="">
-                    <small class="time">
-                        <span>{{t.data | date:'dd/MM/yyyy @ HH:mm'}}</span>
-                    </small>
+<banner testo="Profilo {{profilo}}" />
+
+<div class="container page-content">
+
+    <div>
+        <ol class="stream-items">
+            <li class="stream-item" ng-repeat="t in tweets">
+                <div class="tweet">
+                    <div class="stream-item-header">
+                        <img class="avatar js-action-profile-avatar" ng-src="{{t.user.image}}" alt="">
+                        <small class="time">
+                            <span>{{t.data | date:'dd/MM/yyyy @ HH:mm'}}</span>
+                        </small>
+                    </div>
+                    <p class="tweet-text">{{t.testo}}</p>
                 </div>
-                <p class="tweet-text">{{t.testo}}</p>
-            </div>
-        </li>
-    </ol>
-
+            </li>
+        </ol>
+    </div>
     <!--Ultimo Id {{lastId()}}-->
-
-    <ul class="pager">
-        <li class="previous"><a ng-click="cmdPreviousTweets()">&larr; Pi&ugrave; vecchi</a></li>
-    </ul>
-
+    <div class="pagination-panel">
+        <ul class="pager">
+            <li class="previous"><a ng-click="cmdPreviousTweets()" ng-bind-html="getLoadingText()" ng-hide="isBusy"></a></li>
+        </ul>
+    </div>
 </div>
 

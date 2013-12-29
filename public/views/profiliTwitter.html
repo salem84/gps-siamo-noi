@@ -1,13 +1,16 @@
-<div class="container">
-    <div class="page-header">
-        <h1>Profili twitter</h1>
-    </div>
+<banner testo="Profili Twitter" />
+<banner class="banner-grey" testo="Conosci qualche altro profilo interessante! Mandaci un'email" />
+
+<div id="twitter-profili-view" class="container page-content">
+    
     <div>
         <ul class="twitter-profili">
-            <li ng-repeat="p in profili" ng-style="{ 'border-color': p.bg_color }">
+            <li ng-repeat="p in profili" class="twitter-profilo col-xs-5" 
+                ng-style="{ 'background-color': $parent.bg_colors[$index] }"
+                ng-click="goTweetsPage(p.screenName)">
                 <div>
                     <img ng-src="{{p.image}}" />
-                    <a href="/#/profiliTwitter/{{p.screenName}}" ng-style="{ 'color': p.fg_color }">@{{p.screenName}}</a>
+                    <p ng-style="{ 'color': $parent.fg_colors[$index] }">@{{p.screenName}}</p>
                 </div>
 
             </li>

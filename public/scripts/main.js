@@ -3,7 +3,7 @@
 var app = angular.module('gpsSiamoNoiApp', [
   //'ngCookies',
   //'ngResource',
-  //'ngSanitize',
+  'ngSanitize',
   'gsn.services.rest',
   'gsn.services.segnalazioni',
   'ui.bootstrap'
