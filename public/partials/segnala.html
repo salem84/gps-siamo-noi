@@ -1,0 +1,55 @@
+
+<div id="nuova-segnalazione-view">
+    <div class="page-header">
+        <h1>Segnala!</h1>
+    </div>
+    <form role="form" ng-submit="creaSegnalazione()">
+        <div id="primo-step" ng-show="currentStep == 1">
+            <div class="row">
+                <div class="col-lg-4 col-xs-12">
+                    <h4>Scrivi la linea su cui stai viaggiando</h4>
+                </div>
+                <div class="col-lg-4 col-xs-12">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">#</span>
+                        <input type="text" class="form-control" placeholder="Numero" ng-model="selectedLinea">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-12 text-center">
+                    <button type="button" class="btn btn-primary" ng-show="selectedLinea" ng-click="cmdGoStepDirezioni()">Avanti</button>
+                </div>
+            </div>
+
+        </div>
+        <div id="secondo-step" ng-show="currentStep == 2">
+            <div class="row">
+                <div class="col-xs-12">
+                    Stai viaggiando sulla linea:
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-xs-4">
+                    <h2>#{{selectedLinea}}</h2>
+                </div>
+                <div class="col-lg-4 col-xs-8">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            {{selectedDirezione.name || 'Direzione'}} <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="d in direzioni"><a href="javascript:void(0)" ng-click="cmdSelezionaDirezione($index)">{{d.name}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="terzo-step">
+            <div class="scrollable vertical">
+                <div class="fermata" ng-repeat="f in selectedDirezione.fermate">
+                    <div class="check" ng-click="cmdSelezionaFermata($index)" ng-class="{ selected: $index == selectedFermata.index}"></div>
+                    {{f.name}}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

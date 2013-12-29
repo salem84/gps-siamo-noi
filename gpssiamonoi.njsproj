@@ -36,11 +36,11 @@
     <Compile Include="utils\twitter_config.js" />
     <Content Include="linee\3.json" />
     <Content Include="public\partials\new.html" />
+    <Content Include="public\partials\segnala.html" />
     <Content Include="views\index.jade" />
     <Compile Include="public\javascripts\main.js" />
     <Compile Include="public\javascripts\controllers.js" />
     <Compile Include="public\javascripts\services.js" />
-    <Content Include="public\partials\segnala.html" />
     <Content Include="public\partials\profiliTwitter.html" />
     <Content Include="public\partials\tweets.html" />
     <Content Include="public\stylesheets\style.css" />
