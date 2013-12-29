@@ -1,11 +1,11 @@
 <banner testo="Profili Twitter" />
 <banner class="banner-grey" testo="Conosci qualche altro profilo interessante! Mandaci un'email" />
 
-<div id="twitter-profili-view" class="container page-content">
-    
+<div id="twitter-profili-view" class="container page-content" loading-widget="show">
+
     <div>
         <ul class="twitter-profili">
-            <li ng-repeat="p in profili" class="twitter-profilo col-xs-5" 
+            <li ng-repeat="p in profili" class="twitter-profilo col-xs-5"
                 ng-style="{ 'background-color': $parent.bg_colors[$index] }"
                 ng-click="goTweetsPage(p.screenName)">
                 <div>

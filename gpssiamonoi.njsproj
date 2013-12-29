@@ -29,9 +29,11 @@
     <Compile Include="public\lib\scrollability.min.js" />
     <Compile Include="public\lib\ui-bootstrap-tpls-0.9.0.js" />
     <Compile Include="public\lib\ui-bootstrap-tpls-0.9.0.min.js" />
+    <Compile Include="public\scripts\controllers\c_home.js" />
     <Compile Include="public\scripts\controllers\c_twitter_tweets.js" />
     <Compile Include="public\scripts\controllers\c_twitter_profili.js" />
     <Compile Include="public\scripts\controllers\c_segnalazioni_nuovo.js" />
+    <Compile Include="public\scripts\directives\html.js" />
     <Compile Include="public\scripts\services\s_segnalazioni.js" />
     <Compile Include="public\scripts\utils.js" />
     <Compile Include="routes\index.js" />
@@ -40,11 +42,13 @@
     <Compile Include="routes\user.js" />
     <Compile Include="utils\twitter_config.js" />
     <Content Include="linee\3.json" />
+    <Content Include="public\images\ajax-loader.gif" />
     <Content Include="public\views\home.html" />
     <Content Include="public\views\new.html" />
     <Content Include="public\views\segnala.html" />
     <Content Include="public\views\segnalazioni\nuovo\2_scegli_fermata.html" />
     <Content Include="public\views\segnalazioni\nuovo\1_scegli_linea.html" />
+    <Content Include="public\views\segnalazioni\nuovo\3_riepilogo.html" />
     <Content Include="views\index.jade" />
     <Compile Include="public\scripts\main.js" />
     <Compile Include="public\scripts\controllers\c_segnalazioni_lista.js" />
@@ -55,10 +59,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BuildProcessTemplates\" />
+    <Folder Include="public\images\" />
     <Folder Include="public\lib\" />
     <Folder Include="public\" />
+    <Folder Include="public\templates\" />
     <Folder Include="public\scripts\" />
     <Folder Include="linee\" />
+    <Folder Include="public\scripts\directives\" />
     <Folder Include="public\views\" />
     <Folder Include="public\views\segnalazioni\" />
     <Folder Include="public\views\segnalazioni\nuovo\" />

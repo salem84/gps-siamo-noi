@@ -118,12 +118,20 @@ exports.sendTweet = function(req, res) {
     
 };
 
+exports.getTemplateTweet = function(req, res) {
+    var result = {
+        newPost : '#test ##LINEA## --> ##DIREZIONE## @ ##FERMATA##'
+        
+    };
+    res.json(result);
+};
+
 function parseTwitterDate(text) {
 	return new Date(Date.parse(text.replace(/( +)/, ' UTC$1')));
 }
 
 function getValidTwitterScreenNames() {
-	return ['infoatac', 'disinfoatac', 'romalido'];
+	return ['infoatac', 'disinfoatac', 'romalido', 'voglioil19'];
 }
 
 function isValidTwitter(screenName) {

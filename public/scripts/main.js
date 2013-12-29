@@ -16,9 +16,14 @@ app.config(function($routeProvider) {
              templateUrl: 'views/home.html', 
              controller: 'HomeCtrl'
         }).
+        //when('/segnalazioni', {
+        //     templateUrl: 'views/list.html', 
+        //     controller: 'SegnalazioniListCtrl'
+        //}).
         when('/segnalazioni', {
-             templateUrl: 'views/list.html', 
-             controller: 'SegnalazioniListCtrl'
+             redirectTo: function() {
+                 return '/twitter/profili/voglioil19';
+             }
         }).
         when('/twitter/profili', {
              templateUrl: 'views/profiliTwitter.html', 
@@ -52,7 +57,7 @@ app.config(['$httpProvider', function ($httpProvider) {
                 // get $http via $injector because of circular dependency problem
                 $http = $http || $injector.get('$http');
                 if($http.pendingRequests.length < 1) {
-                    $('#loadingWidget').hide();
+                    $('#loading-widget').hide();
                 }
                 return response;
             }
@@ -61,13 +66,13 @@ app.config(['$httpProvider', function ($httpProvider) {
                 // get $http via $injector because of circular dependency problem
                 $http = $http || $injector.get('$http');
                 if($http.pendingRequests.length < 1) {
-                    $('#loadingWidget').hide();
+                    $('#loading-widget').hide();
                 }
                 return $q.reject(response);
             }
 
             return function(promise) {
-                $('#loadingWidget').show();
+                $('#loading-widget').show();
                 return promise.then(success, error);
             };
         }];

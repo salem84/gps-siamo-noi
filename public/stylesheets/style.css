@@ -138,6 +138,9 @@ a {
         width: 100%;
     }
 
+    #terzo-step .anteprima {
+        word-wrap: break-word;
+    }
    
 }
 
@@ -330,7 +333,12 @@ a {
 /* FINE HOME */
 
 @media screen {
-    
+    #loading-widget {
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -351,3 +359,6 @@ a {
 
     
 }
+
+
+

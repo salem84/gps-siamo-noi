@@ -1,9 +1,10 @@
 ﻿'use strict';
 
-angular.module('gsn.services.segnalazioni', []).
+angular.module('gsn.services.segnalazioni', ['gsn.services.rest']).
 //angular.module('gpsSiamoNoiApp').
-    factory('DatiInvioSegnalazione', function() {
+    factory('DatiInvioSegnalazione', function(Twitter) {
         var s = {  
+            templateTweet: null,
             selectedLinea: null,
             selectedDirezione: null,
             selectedFermata: null,
@@ -14,28 +15,31 @@ angular.module('gsn.services.segnalazioni', []).
             
             getParteFissa: function() {
                 var parteFissa = '';
-                var hashTag = '#test';
-                var riepilogo = hashTag + ' ' + this.selectedLinea;
+                if (this.templateTweet) {
+                    parteFissa  = this.templateTweet;
+                parteFissa = parteFissa.replace("##LINEA##", this.selectedLinea);
                 if (this.selectedDirezione) {
-                    riepilogo += ' --> ' + this.selectedDirezione.name;
+                    parteFissa = parteFissa.replace("##DIREZIONE##", this.selectedDirezione.name);
                 }
                 if (this.selectedFermata) {
-                    riepilogo += ' @' + this.selectedFermata.name;
+                    parteFissa = parteFissa.replace("##FERMATA##", this.selectedFermata.name);
                 }
 
-                if (this.note == '') {
-                    parteFissa = riepilogo + ' | ';
-                } else {
-                    var index = parteFissa.lastIndexOf('|') + 1;
-                    var addedText = parteFissa.substr(index);
-                    parteFissa = riepilogo + ' | ' + addedText;
+                //if (this.note == '') {
+                //    parteFissa = riepilogo + ' | ';
+                //} else {
+                //    var index = parteFissa.lastIndexOf('|') + 1;
+                //    var addedText = parteFissa.substr(index);
+                //    parteFissa = riepilogo + ' | ' + addedText;
+                //}
                 }
+                
                 return parteFissa;
             },
             
             getAnteprima: function() {
                 var parteFissa = this.getParteFissa();
-                return parteFissa + this.note;
+                return parteFissa + ' | ' + this.note;
             },
             
             getCaratteriRimanenti: function() {
@@ -47,7 +51,10 @@ angular.module('gsn.services.segnalazioni', []).
      
             
         };
-        
+
+        Twitter.template(function(result) {
+            s.templateTweet = result.newPost;
+        });
         //dati prova
         s.selectedLinea = "3";
         s.selectedDirezione = {

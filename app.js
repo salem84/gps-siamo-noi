@@ -43,10 +43,11 @@ app.get('/linee/:id', routes.linee.dettagliLinea);
 // --- TWITTER
 //app.get('/twitterCheck', routes.twitterCheck);
 app.get('/twitter/lookup', routes.twitter.getAllProfiles);
-app.get('/twitter/:screenName', routes.twitter.getProfile);
-app.get('/twitter/:screenName/tweets', routes.twitter.getTweets);
+app.get('/twitter/profili/:screenName', routes.twitter.getProfile);
+app.get('/twitter/profili/:screenName/tweets', routes.twitter.getTweets);
 app.post('/twitter', routes.twitter.sendTweet);
 
+app.get('/twitter/template', routes.twitter.getTemplateTweet);
 
 
 http.createServer(app).listen(app.get('port'), function(){
