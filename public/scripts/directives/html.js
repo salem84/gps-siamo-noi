@@ -24,7 +24,39 @@ app.directive("loadingWidget", function() {
                 "</p></div></div>";
             tElement.prepend(div);
         },
+        //replace: true,
+        //transclude: false
+    };
+});
+
+app.directive("twitterAccount", function(UserInfo) {
+    return {
+        restrict: "E",
+        //compile: function(tElement, tAttrs) {
+        //    var div = "<a href='#'>Login account</a>";
+        //    tElement.prepend(div);
+        //},
+        link: function(scope, element, attrs) {
+            scope.$watch(function() {
+                return UserInfo.isLogged;
+            }, function() {
+                update();
+            });
+
+            function update() {
+                if (UserInfo.isLogged) {
+                    scope.name = '@' + UserInfo.userName;
+                    scope.url = '/#/auth/twitter/user';
+                    
+                } else {
+                    scope.name = 'Login';
+                    scope.url = '/#/auth/twitter';
+                    
+                }
+            }
+        },
+        template:"<a href='{{url}}' class='navbar-brand'>{{name}}</a>",
         replace: true,
-        transclude: false
+        transclude: true
     };
 });

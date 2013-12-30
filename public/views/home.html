@@ -1,11 +1,11 @@
-﻿<banner testo="Benvenuto!"/>
+﻿<banner testo="Benvenuto {{userInfo.displayName}}!"/>
 
 <div id="home-content" class="container">
     
 
     <ul id="main-menu-list">
         <li>
-            <a class="button btn-purple" href="/#/segnalazioni/nuovo">Invia Segnalazione</a>
+            <a class="button btn-purple" href="/#/segnalazioni/nuovo">Segnala posizione</a>
         </li>
         <li>
             <a class="button btn-green" href="/#/segnalazioni/">Ultime segnalazioni</a>
@@ -17,4 +17,14 @@
             <a class="button btn-orange" href="/#/contatti">Contattaci</a>
         </li>
     </ul>
+    
+    <div ng-hide="userInfo.isLogged">
+        <div class="col-xs-2" ng-click="cmdGoAuthTwitter()">
+            <img alt="Twitter" width="64" src="/images/twitter_logo_blue.png" />
+        </div>
+
+        <div class="pull-right col-xs-8 alert alert-info" ng-click="cmdGoAuthTwitter()">
+            Accedi a Twitter per personalizzare e inviare i tweet direttamente da qui! <em>Clicca qui</em>
+        </div>
+    </div>
 </div>

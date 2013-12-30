@@ -23,6 +23,7 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 
 		script(src='/scripts/services/s_rest.js')
 		script(src='/scripts/services/s_segnalazioni.js')
+		script(src='/scripts/services/s_user.js')
 
 		script(src='/scripts/directives/html.js')
 
@@ -31,6 +32,9 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		script(src='/scripts/controllers/c_segnalazioni_nuovo.js')
 		script(src='/scripts/controllers/c_twitter_profili.js')
 		script(src='/scripts/controllers/c_twitter_tweets.js')
+		script(src='/scripts/controllers/c_auth.js')
+
+
 	body(ng-app='gpsSiamoNoiApp')
 		//-div#loadingWidget.row-fluid.ui-corner-all(style='padding: 0 .7em; display: none;')
 		//-	div.loadingContent
@@ -46,6 +50,7 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 						span.icon-bar
 						span.icon-bar
 					a.navbar-brand(href='#/')= title
+					twitter-account
 				div.collapse.navbar-collapse#bs-main-nav
 					ul.nav.navbar-nav.navbar-right
 						li

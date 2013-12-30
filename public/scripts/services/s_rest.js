@@ -14,4 +14,11 @@ angular.module('gsn.services.rest', ['ngResource']).
     }).
     factory('Linee', function($resource) {
         return $resource('linee/:id', {});
+    }).
+    factory('Auth', function($http) {
+        var s = {            
+            getUserInfo: $http({method: 'GET', url: '/auth/twitter/get_userinfo'})
+        };
+
+        return s;
     });

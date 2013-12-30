@@ -5,7 +5,6 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
@@ -21,7 +20,7 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
+app.use(express.cookieParser('gpssiamonoi_coookie_secret'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -33,7 +32,12 @@ if ('development' == app.get('env')) {
 
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/test/:id', function(req, res) {
+    if (req.params.id == "1")
+        res.send(200);
+    else
+        res.send(500);
+});
 
 // --- ATAC
 app.get('/linee', routes.linee.elencoLinee);
@@ -48,6 +52,11 @@ app.get('/twitter/profili/:screenName/tweets', routes.twitter.getTweets);
 app.post('/twitter', routes.twitter.sendTweet);
 
 app.get('/twitter/template', routes.twitter.getTemplateTweet);
+
+// --- AUTHENTICATION
+app.get('/auth/twitter', routes.auth.twitterAuth);
+app.get('/auth/twitter/get_userinfo', routes.auth.getUserInfo);
+app.get('/auth/twitter/callback', routes.auth.twitterAuthCallback);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

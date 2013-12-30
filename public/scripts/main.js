@@ -1,12 +1,13 @@
 'use strict';
 
 var app = angular.module('gpsSiamoNoiApp', [
-  //'ngCookies',
-  //'ngResource',
-  'ngSanitize',
-  'gsn.services.rest',
-  'gsn.services.segnalazioni',
-  'ui.bootstrap'
+    //'ngCookies',
+    //'ngResource',
+    'ngSanitize',
+    'gsn.services.rest',
+    'gsn.services.segnalazioni',
+    'gsn.services.user',
+    'ui.bootstrap'
 ]);
 
 
@@ -44,6 +45,18 @@ app.config(function($routeProvider) {
         when('/segnalazioni/nuovo/riepilogo', {
              templateUrl: 'views/segnalazioni/nuovo/3_riepilogo.html', 
              controller: 'NuovaSegnalazione_RiepilogoCtrl'
+        }).
+        when('/auth/twitter', {
+             templateUrl: 'views/auth/twitterAuth.html', 
+             controller: 'TwitterAuthCtrl'
+        }).
+        when('/auth/twitter/user', {
+             templateUrl: 'views/auth/twitterUser.html', 
+             controller: 'TwitterUserCtrl'
+        }).
+        when('/auth/twitter/callback/:status', {
+             templateUrl: 'views/auth/twitterAuthCallback.html', 
+             controller: 'TwitterAuthCallbackCtrl'
         }).
         otherwise({ redirectTo: '/' });
 });
