@@ -9,7 +9,9 @@
     "express": "3.4.7",
     "jade": "1.0.0",
     "twit": "1.1.11",
-	"oauth": "0.9.10",
-	"underscore": "1.5.2"
+    "oauth": "0.9.10",
+    "underscore": "1.5.2",
+    "passport": "0.1.17",
+    "passport-twitter": "~1.0.2"
   }
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular.module('gpsSiamoNoiApp', [
-    //'ngCookies',
+    'ngCookies',
     //'ngResource',
     'ngSanitize',
     'gsn.services.rest',
@@ -11,54 +11,60 @@ var app = angular.module('gpsSiamoNoiApp', [
 ]);
 
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
     $routeProvider.
         when('/', {
-             templateUrl: 'views/home.html', 
-             controller: 'HomeCtrl'
+            templateUrl: 'views/home.html',
+            controller: 'HomeCtrl'
         }).
         //when('/segnalazioni', {
         //     templateUrl: 'views/list.html', 
         //     controller: 'SegnalazioniListCtrl'
         //}).
         when('/segnalazioni', {
-             redirectTo: function() {
-                 return '/twitter/profili/voglioil19';
-             }
+            redirectTo: function() {
+                return '/twitter/profili/voglioil19';
+            }
         }).
         when('/twitter/profili', {
-             templateUrl: 'views/profiliTwitter.html', 
-             controller: 'ProfiliTwitterCtrl'
+            templateUrl: '/views/profiliTwitter.html',
+            controller: 'ProfiliTwitterCtrl'
         }).
         when('/twitter/profili/:profilo', {
-             templateUrl: 'views/tweets.html', 
-             controller: 'TweetsProfiloCtrl'
+            templateUrl: '/views/tweets.html',
+            controller: 'TweetsProfiloCtrl'
         }).
         when('/segnalazioni/nuovo', {
-             templateUrl: 'views/segnalazioni/nuovo/1_scegli_linea.html', 
-             controller: 'NuovaSegnalazioneCtrl'
+            templateUrl: '/views/segnalazioni/nuovo/1_scegli_linea.html',
+            controller: 'NuovaSegnalazioneCtrl'
         }).
         when('/segnalazioni/nuovo/fermata', {
-             templateUrl: 'views/segnalazioni/nuovo/2_scegli_fermata.html', 
-             controller: 'NuovaSegnalazione_FermataCtrl'
+            templateUrl: '/views/segnalazioni/nuovo/2_scegli_fermata.html',
+            controller: 'NuovaSegnalazione_FermataCtrl'
         }).
         when('/segnalazioni/nuovo/riepilogo', {
-             templateUrl: 'views/segnalazioni/nuovo/3_riepilogo.html', 
-             controller: 'NuovaSegnalazione_RiepilogoCtrl'
+            templateUrl: '/views/segnalazioni/nuovo/3_riepilogo.html',
+            controller: 'NuovaSegnalazione_RiepilogoCtrl'
         }).
         when('/auth/twitter', {
-             templateUrl: 'views/auth/twitterAuth.html', 
-             controller: 'TwitterAuthCtrl'
+            templateUrl: '/views/auth/twitterAuth.html',
+            controller: 'TwitterAuthCtrl'
         }).
         when('/auth/twitter/user', {
-             templateUrl: 'views/auth/twitterUser.html', 
-             controller: 'TwitterUserCtrl'
+            templateUrl: '/views/auth/twitterUser.html',
+            controller: 'TwitterUserCtrl'
         }).
         when('/auth/twitter/callback/:status', {
-             templateUrl: 'views/auth/twitterAuthCallback.html', 
-             controller: 'TwitterAuthCallbackCtrl'
+            templateUrl: '/views/auth/twitterAuthCallback.html',
+            controller: 'TwitterAuthCallbackCtrl'
         }).
-        otherwise({ redirectTo: '/' });
+        when('/404', {
+            templateUrl: '/views/404.html',
+        }).
+        otherwise({ redirectTo: '/404' });
+
+
+    $locationProvider.html5Mode(true);
 });
 
 app.config(['$httpProvider', function ($httpProvider) {

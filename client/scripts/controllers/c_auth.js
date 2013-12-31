@@ -4,45 +4,45 @@ app.controller('TwitterAuthCtrl', function($scope) {
 
 });
 
-app.controller('TwitterAuthCallbackCtrl', function($scope,$routeParams, Auth, UserInfo) {
+app.controller('TwitterAuthCallbackCtrl', function($scope,$routeParams, Auth) {
     
-    $scope.userInfo = UserInfo;
+    //$scope.userInfo = UserInfo;
     
-    if ($routeParams.status == 'success') {
+    //if ($routeParams.status == 'success') {
         
 
-        //Faccio la chiamata per recuperare username e dati con le info presenti in sessione
+    //    //Faccio la chiamata per recuperare username e dati con le info presenti in sessione
 
-        Auth.getUserInfo
-            .success(function(data, status, headers, config) {
-                $scope.userInfo.parseUser(data);
-                $scope.success = true;
-            })
-            .error(function(data, status, headers, config) {
-                $scope.success = false;
-            });
+    //    Auth.getUserInfo
+    //        .success(function(data, status, headers, config) {
+    //            $scope.userInfo.parseUser(data);
+    //            $scope.success = true;
+    //        })
+    //        .error(function(data, status, headers, config) {
+    //            $scope.success = false;
+    //        });
 
-    } else {
-        $scope.success = false;
-    }
+    //} else {
+    //    $scope.success = false;
+    //}
     
 
 });
 
 
-app.controller('TwitterUserCtrl', function($scope,$timeout, $location, UserInfo) {
-    $scope.userInfo = UserInfo;
+app.controller('TwitterUserCtrl', function($scope,$timeout, $location, Auth) {
+    $scope.user = Auth;
 
     $scope.secondi = 5;
 
     $scope.cmdDisconnetti = function() {
-        UserInfo.disconnetti();
-
+        Auth.logout();
+        $timeout(countDown, 1000); 
     };
 
     var countDown = function() {
-        if ($scope.userInfo.isLogged == false) {
-            if ($scope.secondi == 0) {
+        if ($scope.user.isLoggedIn() == false) {
+            if ($scope.secondi == 1) {
                 $location.path('/');
             } else {
                 $scope.secondi -= 1;

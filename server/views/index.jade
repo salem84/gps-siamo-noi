@@ -11,7 +11,9 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
 		script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js")
 		
+		script(src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular-cookies.min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular-resource.min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular-sanitize.min.js')
 		
@@ -23,11 +25,12 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 
 		script(src='/scripts/services/s_rest.js')
 		script(src='/scripts/services/s_segnalazioni.js')
-		script(src='/scripts/services/s_user.js')
+		script(src='/scripts/services/s_auth.js')
 
 		script(src='/scripts/directives/html.js')
 
 		script(src='/scripts/controllers/c_home.js')
+		script(src='/scripts/controllers/c_nav.js')
 		script(src='/scripts/controllers/c_segnalazioni_lista.js')
 		script(src='/scripts/controllers/c_segnalazioni_nuovo.js')
 		script(src='/scripts/controllers/c_twitter_profili.js')
@@ -41,7 +44,7 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		//-		p
 		//-			img(alt='Loading', src='images/ajax-loader.gif', width='100px')
 
-		nav.navbar.navbar-inverse.navbar-fixed-bottom(role='navigation')
+		nav.navbar.navbar-inverse.navbar-fixed-bottom(role='navigation', data-ng-controller='NavCtrl')
 			div.container
 				div.navbar-header
 					button.navbar-toggle(type='button' data-toggle='collapse' data-target='#bs-main-nav')
@@ -49,14 +52,14 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a.navbar-brand(href='#/')= title
-					twitter-account
+					a.navbar-brand(href='/')= title
+					a.navbar-brand(href='/auth/twitter/user')= '{{user.displayName}}'
 				div.collapse.navbar-collapse#bs-main-nav
 					ul.nav.navbar-nav.navbar-right
 						li
-							a(href='#/segnalazioni/nuovo')='Segnala'
+							a(href='/segnalazioni/nuovo')='Segnala'
 						li
-							a(href='#/twitter/profili')='Twitter'
+							a(href='/twitter/profili')='Twitter'
 		//-div.container
 		//-	div(ng-view)
 		div(ng-view)

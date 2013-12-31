@@ -1,7 +1,8 @@
 ﻿var _ = require('underscore'),
+    passport = require('passport'),
+    AuthCtrl = require('./controllers/auth.js'),
     LineeCtrl = require('./controllers/linee.js'),
-    TwitterCtrl = require('./controllers/twitter.js'),
-    AuthCtrl = require('./controllers/auth.js');
+    TwitterCtrl = require('./controllers/twitter.js');
 
 var routes = [
     {
@@ -56,36 +57,52 @@ var routes = [
     
     // AUTH
     {
+        path: '/auth/logout',
+        httpMethod: 'POST',
+        middleware: [AuthCtrl.logout]
+    },
+    {
         path: '/auth/twitter',
         httpMethod: 'GET',
-        middleware: [AuthCtrl.twitterAuth]
+        middleware: [passport.authenticate('twitter')]
     },
+    {
+        path: '/auth/twitter/callback',
+        httpMethod: 'GET',
+        middleware: [passport.authenticate('twitter', {
+            successRedirect: '/',
+            failureRedirect: '/login'
+        })]
+    },
+    
     {
         path: '/auth/twitter/get_userinfo',
         httpMethod: 'GET',
         middleware: [AuthCtrl.getUserInfo]
     },
-    {
-        path: '/auth/twitter/callback',
-        httpMethod: 'GET',
-        middleware: [AuthCtrl.twitterAuthCallback]
-    },
+    
 
 
     // Tutte le altre richieste saranno gestite da AngularJS client-side routing
     {
-        path: '/',
+        path: '/*',
+        skipApi: true,
         httpMethod: 'GET',
         middleware: [function(req, res) {
             //var role = userRoles.public, username = '';
-            //if(req.user) {
+            var username = '';
+            var displayName = '';
+            if(req.user) {
             //    role = req.user.role;
-            //    username = req.user.username;
-            //}
-            //res.cookie('user', JSON.stringify({
-            //    'username': username,
-            //    'role': role
-            //}));
+                username = req.user.username;
+                displayName = req.user.displayName;
+            }
+            
+            res.cookie('user', JSON.stringify({
+                'username': username,
+                'displayName': displayName,
+                'role': ''
+            }));
             res.render('index', { title: 'Gps siamo noi' });
         }]
     }
@@ -95,6 +112,10 @@ module.exports = function(app) {
 
     _.each(routes, function(route) {
         //route.middleware.unshift(ensureAuthorized);
+        
+        if (!route.skipApi)
+            route.path = '/api' + route.path;
+        
         var args = _.flatten([route.path, route.middleware]);
 
         switch(route.httpMethod.toUpperCase()) {

@@ -17,12 +17,13 @@
     <ScriptArguments />
     <NodejsPort>3000</NodejsPort>
     <StartWebBrowser>True</StartWebBrowser>
-    <LaunchUrl />
+    <LaunchUrl>http://192.168.13.252:3000</LaunchUrl>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Content Include="BuildProcessTemplates\GitContinuousDeploymentTemplate.12.xaml" />
+    <Content Include="client\views\404.html" />
     <Content Include="package.json" />
     <Compile Include="app.js" />
     <Compile Include="client\lib\scrollability.js" />
@@ -36,9 +37,11 @@
     <Compile Include="client\scripts\controllers\c_segnalazioni_nuovo.js" />
     <Compile Include="client\scripts\directives\html.js" />
     <Compile Include="client\scripts\services\s_segnalazioni.js" />
-    <Compile Include="client\scripts\services\s_user.js" />
+    <Compile Include="client\scripts\services\s_auth.js" />
     <Compile Include="client\scripts\utils.js" />
     <Compile Include="server\config.js" />
+    <Compile Include="client\scripts\controllers\c_nav.js" />
+    <Compile Include="server\models\User.js" />
     <Compile Include="server\routes.js" />
     <Compile Include="server\controllers\linee.js" />
     <Compile Include="server\controllers\twitter.js" />
@@ -82,6 +85,7 @@
     <Folder Include="client\stylesheets\" />
     <Folder Include="server\" />
     <Folder Include="server\controllers\" />
+    <Folder Include="server\models\" />
     <Folder Include="server\utils\" />
     <Folder Include="server\views\" />
   </ItemGroup>

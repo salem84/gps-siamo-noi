@@ -1,6 +1,11 @@
 var config = require('../config');
+var Twit = require('twit');
 
-function getOAuth() {
+/********************************************************************/
+/* FUNZIONI OAUTH NON PIU' UTILIZZATE --- sostituito da lib passport*/
+/********************************************************************/
+
+/*function getOAuth() {
     var OAuth= require('oauth').OAuth;
     var oa = new OAuth(
         "https://api.twitter.com/oauth/request_token",
@@ -56,10 +61,19 @@ module.exports = {
             console.log("you're not supposed to be here.");
             res.redirect(urlCallbackClient + 'error');
         }
-    },
+    }
+};*/
 
+
+module.exports = {
+    
+    logout: function(req, res) {
+        req.logout();
+        res.send(200);
+    },
+    
     getUserInfo: function(req, res) {
-        var Twit = require('twit');
+        
         var T = new Twit({
             consumer_key: config.twitter.consumer_key,
             consumer_secret: config.twitter.consumer_secret,

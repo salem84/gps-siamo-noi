@@ -3,13 +3,18 @@
  * Module dependencies.
  */
 
-var express = require('express');
-var routes = require('./server/routes');
-var http = require('http');
-var path = require('path');
-
+var express = require('express'),
+    http = require('http'),
+    path = require('path'),
+    fs = require('fs'),
+    passport = require('passport'),
+    routes = require('./server/routes'),
+    User = require('./server/models/User');
 
 var app = express();
+
+var logFile = fs.createWriteStream('./myLogFile.log', {flags: 'a'}); //use {flags: 'w'} to open in write mode
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -20,15 +25,30 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(express.cookieParser('gpssiamonoi_coookie_secret'));
-app.use(express.session());
-app.use(app.router);
+app.use(express.cookieParser());
+//app.use(express.session({
+//     secret: process.env.COOKIE_SECRET || 'gpssiamonoi_coookie_secret'
+//}));
+app.use(express.cookieSession(
+    {
+        secret: process.env.COOKIE_SECRET || 'gpssiamonoi_coookie_secret'
+    }));
+
+//altrimenti non carica i file statici
+//app.use(app.router);
 app.use(express.static(path.join(__dirname, 'client')));
 
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(User.twitterStrategy());
+passport.serializeUser(User.serializeUser);
+passport.deserializeUser(User.deserializeUser);
 
 require('./server/routes.js')(app);
 

@@ -1,16 +1,16 @@
 ﻿<banner testo="Informazioni utente" />
 
 <div class="container page-content">
-    <div class="alert alert-danger" ng-hide="userInfo.isLogged">
+    <div class="alert alert-danger" ng-hide="user.isLoggedIn()">
         Non sei loggato su Twitter. <br /><br />Sarai reindirizzato all'homepage in {{secondi}}!
     </div>
     
-    <div class="alert alert-info" ng-show="userInfo.isLogged">
-        Ciao {{userInfo.displayName}}<br />
+    <div class="alert alert-info" ng-show="user.isLoggedIn()">
+        Ciao {{user.displayName}}<br />
         Per disconnetterti dall'account Twitter clicca il button in basso...
     </div>
 
-    <div class="col-lg-4 col-xs-12 text-center" ng-show="userInfo.isLogged">
-        <a class="btn btn-lg btn-primary" target="_self" href="javascript:void(0)" ng-click="cmdDisconnetti">Disconnetti</a>
+    <div class="col-lg-4 col-xs-12 text-center" ng-show="user.isLoggedIn()">
+        <a class="btn btn-lg btn-primary" target="_self" href="javascript:void(0)" ng-click="cmdDisconnetti()">Disconnetti</a>
     </div>
 </div>
