@@ -3,9 +3,17 @@
 app.controller('NavCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     $scope.user = Auth.user;
 
-    $scope.link = function() {
+    $scope.linkUrl = function() {
         if (Auth.isLoggedIn()) {
-            return Auth.user.displayName;
+            return '/auth/twitter/user';
+        } else {
+            return '/auth/twitter';
+        }
+    };
+
+    $scope.linkText = function() {
+        if (Auth.isLoggedIn()) {
+            return '@' + Auth.user.username;
         } else {
             return 'Login';
         }

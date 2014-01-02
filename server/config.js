@@ -10,4 +10,8 @@ config.twitter.default_access_token = '165020788-VZB63Y32MLwg2ujaWEuA35TNCtQMD8F
 config.twitter.default_access_token_secret = 'TZwyYbzfk81xm1y1IsTMYFuQUAdsxvd2QL4iyBcLX96Ba';
 config.twitter.callback_url = config.site.url + 'api/auth/twitter/callback';
 
+config.sendgrid = {};
+config.sendgrid.api_user = 'azure_b14271a11ccf7b2d3b45632111ec0371@azure.com';
+config.sendgrid.api_key = 'w6dfvh8y';
+
 module.exports = config;

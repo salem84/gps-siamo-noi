@@ -72,6 +72,18 @@ a {
         margin-top: 10px;
     }
 
+    .top-buffer-s {
+        margin-top: 10px;
+    }
+    
+    .top-buffer-l {
+        margin-top: 20px;
+    }
+
+    .top-buffer-xl {
+        margin-top: 40px;
+    }
+
     .pagination-panel {
         margin-bottom: 100px;
     }

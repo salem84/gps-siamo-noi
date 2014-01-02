@@ -1,0 +1,44 @@
+{
+    "long_name": "Tram 3",
+    "direzioni": [{
+        "id_relation": "1965412",
+        "name": "P.le Ostiense -> Valle Giulia",
+        "fermate": [{
+            "id_node": "286609213",
+            "codice": "01",
+            "name": "P.le Ostiense"
+        }, {
+            "id_node": "1675888286 ",
+            "codice": "02",
+            "name": "Albania"
+        }, {
+            "id_node": "1675888301",
+            "codice": "03",
+            "name": "Aventino/Circo Massimo"
+        }, {
+            "id_node": "1675888494",
+            "codice": "04",
+            "name": "Parco Celio"
+        }]
+    }, {
+        "id_relation": "1380980",
+        "name": "Valle Giulia -> P.le Ostiense",
+        "fermate": [{
+            "id_node": "813832903",
+            "codice": "01",
+            "name": " Valle Giulia"
+        }, {
+            "id_node": "1675888394 ",
+            "codice": "02",
+            "name": "Galleria Arte Moderna"
+        }, {
+            "id_node": "1675888287",
+            "codice": "03",
+            "name": "Aldrovandi"
+        }, {
+            "id_node": "1675888317",
+            "codice": "04",
+            "name": "Bioparco"
+        }]
+    }]
+}

@@ -14,6 +14,11 @@ angular.module('gsn.services.rest', ['ngResource']).
     }).
     factory('Linee', function($resource) {
         return $resource('/api/linee/:id', {});
+    }).
+    factory('Assistenza', function($resource) { 
+        return $resource('/api/assistenza/', {}, {
+            post: { method: 'POST'}
+        });
     //}).
     //factory('HttpAuth', function($http) {
     //    var s = {            

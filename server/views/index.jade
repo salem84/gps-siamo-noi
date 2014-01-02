@@ -31,6 +31,7 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 
 		script(src='/scripts/controllers/c_home.js')
 		script(src='/scripts/controllers/c_nav.js')
+		script(src='/scripts/controllers/c_contattaci.js')
 		script(src='/scripts/controllers/c_segnalazioni_lista.js')
 		script(src='/scripts/controllers/c_segnalazioni_nuovo.js')
 		script(src='/scripts/controllers/c_twitter_profili.js')
@@ -53,7 +54,7 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 						span.icon-bar
 						span.icon-bar
 					a.navbar-brand(href='/')= title
-					a.navbar-brand(href='/auth/twitter/user')= '{{user.displayName}}'
+					a.navbar-brand(href='{{linkUrl()}}')= '{{linkText()}}'
 				div.collapse.navbar-collapse#bs-main-nav
 					ul.nav.navbar-nav.navbar-right
 						li

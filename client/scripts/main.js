@@ -26,6 +26,10 @@ app.config(function($routeProvider, $locationProvider) {
                 return '/twitter/profili/voglioil19';
             }
         }).
+        when('/contattaci', {
+            templateUrl: '/views/contattaci.html',
+            controller: 'ContattaciCtrl'
+        }).
         when('/twitter/profili', {
             templateUrl: '/views/profiliTwitter.html',
             controller: 'ProfiliTwitterCtrl'

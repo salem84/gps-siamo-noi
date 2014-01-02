@@ -54,13 +54,13 @@ angular.module('gsn.services.segnalazioni', ['gsn.services.rest']).
             s.templateTweet = result.newPost;
         });
         //dati prova
-        s.selectedLinea = "3";
-        s.selectedDirezione = {
-            "id_relation": "1380980",
-            "name": "Valle Giulia -> P.le Ostiense",
-            "fermate": [{ "id_node": "813832903", "codice": "01", "name": " Valle Giulia" }, { "id_node": "1675888394 ", "codice": "02", "name": "Galleria Arte Moderna" }, { "id_node": "1675888287", "codice": "03", "name": "Aldrovandi", "index": 2 }, { "id_node": "1675888317", "codice": "04", "name": "Bioparco" }]
-        };
+        //s.selectedLinea = "3";
+        //s.selectedDirezione = {
+        //    "id_relation": "1380980",
+        //    "name": "Valle Giulia -> P.le Ostiense",
+        //    "fermate": [{ "id_node": "813832903", "codice": "01", "name": " Valle Giulia" }, { "id_node": "1675888394 ", "codice": "02", "name": "Galleria Arte Moderna" }, { "id_node": "1675888287", "codice": "03", "name": "Aldrovandi", "index": 2 }, { "id_node": "1675888317", "codice": "04", "name": "Bioparco" }]
+        //};
 
-        s.selectedFermata = { "id_node": "1675888287", "codice": "03", "name": "Aldrovandi", "index": 2 };
+        //s.selectedFermata = { "id_node": "1675888287", "codice": "03", "name": "Aldrovandi", "index": 2 };
         return s;
     });

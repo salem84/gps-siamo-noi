@@ -24,6 +24,12 @@
   <ItemGroup>
     <Content Include="BuildProcessTemplates\GitContinuousDeploymentTemplate.12.xaml" />
     <Content Include="client\views\404.html" />
+    <Content Include="client\views\contattaci.html" />
+    <Content Include="linee\14.json" />
+    <Content Include="linee\19.json" />
+    <Content Include="linee\2.json" />
+    <Content Include="linee\5.json" />
+    <Content Include="linee\8.json" />
     <Content Include="package.json" />
     <Compile Include="app.js" />
     <Compile Include="client\lib\scrollability.js" />
@@ -31,6 +37,7 @@
     <Compile Include="client\lib\ui-bootstrap-tpls-0.9.0.js" />
     <Compile Include="client\lib\ui-bootstrap-tpls-0.9.0.min.js" />
     <Compile Include="client\scripts\controllers\c_auth.js" />
+    <Compile Include="client\scripts\controllers\c_contattaci.js" />
     <Compile Include="client\scripts\controllers\c_home.js" />
     <Compile Include="client\scripts\controllers\c_twitter_tweets.js" />
     <Compile Include="client\scripts\controllers\c_twitter_profili.js" />
@@ -41,6 +48,7 @@
     <Compile Include="client\scripts\utils.js" />
     <Compile Include="server\config.js" />
     <Compile Include="client\scripts\controllers\c_nav.js" />
+    <Compile Include="server\controllers\assistenza.js" />
     <Compile Include="server\models\User.js" />
     <Compile Include="server\routes.js" />
     <Compile Include="server\controllers\linee.js" />

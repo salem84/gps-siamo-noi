@@ -53,6 +53,13 @@ passport.deserializeUser(User.deserializeUser);
 require('./server/routes.js')(app);
 
 
+var logentries = require('node-logentries');
+var log = logentries.logger({
+  token:'bf5c544b-31cb-4d61-abf6-ddfd59a11241'
+});
+
+log.info("Applicazione avviata");
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

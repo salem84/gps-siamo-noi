@@ -1,0 +1,45 @@
+﻿<banner testo="Contattaci" />
+<banner class="banner-grey" testo="Hai un problema, un dubbio o qualcosa da suggerirci..." />
+
+
+<div class="container page-content top-buffer-xl">
+    <form role="form">
+
+
+
+
+        <div class="input-group input-group-lg">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                {{selectedMotivoSegnalazione || 'Motivo segnalazione'}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="m in motiviSegnalazione"><a href="javascript:void(0)" ng-click="cmdSelezionaMotivo($index)">{{m}}</a></li>
+            </ul>
+
+        </div>
+
+        <div class="form-group top-buffer-l">
+            <label for="descrizioneField">Descrizione</label>
+            <textarea class="form-control" id="descrizioneField" placeholder="Inserisci la descrizione" ng-model="descrizione" />
+        </div>
+
+        <div class="form-group">
+            <label for="userEmail">Indirizzo Email</label>
+            <input type="email" class="form-control" id="userEmail" placeholder="Inserisci la tua e-mail" ng-model="email">
+        </div>
+
+        <div class="col-lg-4 col-xs-12 text-center top-buffer-l">
+            <button type="submit" class="btn btn-primary " ng-click="cmdInvia()" ng-disabled="!isValid()">Invia</button>
+        </div>
+    </form>
+    
+    <div class="alert alert-info" ng-show="emailInviata">
+        Segnalazione inviata correttamente
+    </div>
+    <div class="alert alert-danger" ng-show="emailInviata == 'false'">
+        <p>
+            Si è verificato un errore nell'invio della segnalazione
+        </p>
+        <p>Riprovare più tardi</p>
+    </div>
+</div>

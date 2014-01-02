@@ -17,7 +17,7 @@ angular.module('gsn.services.user', ['gsn.services.rest']).
                 if (user === undefined) {
                     user = currentUser;
                 }
-                return user !== undefined;
+                return (user !== undefined && user.username !== '' && user.username !== '');
             },
 
             logout: function() {

@@ -2,7 +2,8 @@
     passport = require('passport'),
     AuthCtrl = require('./controllers/auth.js'),
     LineeCtrl = require('./controllers/linee.js'),
-    TwitterCtrl = require('./controllers/twitter.js');
+    TwitterCtrl = require('./controllers/twitter.js'),
+    AssistenzaCtrl = require('./controllers/assistenza.js');
 
 var routes = [
     {
@@ -10,12 +11,11 @@ var routes = [
         httpMethod: 'GET',
         middleware: [function(req, res) {
             if (req.params.id == "1")
-        res.send(200);
-    else
-        res.send(500);
+                res.send(200);
+            else
+                res.send(500);
         }]
-    },
-    
+    },    
     // ATAC
     {
         path: '/linee',
@@ -26,8 +26,7 @@ var routes = [
         path: '/linee/:id',
         httpMethod: 'GET',
         middleware: [LineeCtrl.dettagliLinea]
-    },
-    
+    },    
     // TWITTER
     {
         path: '/twitter/lookup',
@@ -53,8 +52,7 @@ var routes = [
         path: '/twitter',
         httpMethod: 'POST',
         middleware: [TwitterCtrl.sendTweet]
-    },
-    
+    },    
     // AUTH
     {
         path: '/auth/logout',
@@ -73,16 +71,18 @@ var routes = [
             successRedirect: '/',
             failureRedirect: '/login'
         })]
-    },
-    
+    },    
     {
         path: '/auth/twitter/get_userinfo',
         httpMethod: 'GET',
         middleware: [AuthCtrl.getUserInfo]
+    },    
+    {
+        path: '/assistenza',
+        httpMethod: 'POST',
+        middleware: [AssistenzaCtrl.inviaSegnalazione]
     },
     
-
-
     // Tutte le altre richieste saranno gestite da AngularJS client-side routing
     {
         path: '/*',
@@ -92,12 +92,12 @@ var routes = [
             //var role = userRoles.public, username = '';
             var username = '';
             var displayName = '';
-            if(req.user) {
-            //    role = req.user.role;
+            if (req.user) {
+                //    role = req.user.role;
                 username = req.user.username;
                 displayName = req.user.displayName;
             }
-            
+
             res.cookie('user', JSON.stringify({
                 'username': username,
                 'displayName': displayName,

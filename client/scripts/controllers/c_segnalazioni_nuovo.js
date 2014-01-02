@@ -3,7 +3,12 @@
 app.controller('NuovaSegnalazioneCtrl', function($scope, $location, DatiInvioSegnalazione, Linee, Twitter) {
     $scope.segnalazione = DatiInvioSegnalazione;
 
-    $scope.linee = Linee.query();
+    $scope.linee = Linee.query(function() {
+        $scope.$watch('segnalazione.selectedLinea', function() {
+            verificaLinea();
+
+        });
+    });
 
     $scope.currentStep = 1;
 
@@ -25,18 +30,18 @@ app.controller('NuovaSegnalazioneCtrl', function($scope, $location, DatiInvioSeg
 
     $scope.lineaValida = undefined;
 
-    $scope.$watch('selectedLinea', function() {
+    
+
+    function verificaLinea() {
         var linea = $scope.segnalazione.selectedLinea;
         if (linea != null) {
-            if ($scope.linee.indexOfField('name', linea)) {
+            if ($scope.linee.indexOfField('name', linea) != -1) {
                 $scope.lineaValida = true;
             } else {
                 $scope.lineaValida = false;
             }
         }
-
-    });
-
+    }
 
 });
 

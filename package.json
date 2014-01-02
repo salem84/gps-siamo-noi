@@ -12,6 +12,8 @@
     "oauth": "0.9.10",
     "underscore": "1.5.2",
     "passport": "0.1.17",
-    "passport-twitter": "~1.0.2"
+    "passport-twitter": "~1.0.2",
+    "node-logentries": "~0.1.2",
+    "sendgrid": "~1.0.0-rc.1.0"
   }
 }
