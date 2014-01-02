@@ -12,7 +12,7 @@ var routes = [
         middleware: [function(req, res) {
             if (req.params.id == "1") {
                 //var ora = ().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
-                res.send(new Date());
+                res.send(new Date('Europe/Amsterdam'));
             }
             else
                 res.send(500);
