@@ -3,7 +3,7 @@ var config = require('../config');
 
 
 function getStringNewPostTemplate() {
-    return '#test $DIREZIONE$ - $FERMATA$ @$ORA$';
+    return '#test $DIREZIONE$ - $FERMATA$ alle $ORA$';
 }
 
 function parseTwitterDate(text) {

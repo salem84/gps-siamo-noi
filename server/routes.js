@@ -10,8 +10,10 @@ var routes = [
         path: '/test/:id',
         httpMethod: 'GET',
         middleware: [function(req, res) {
-            if (req.params.id == "1")
-                res.send(200);
+            if (req.params.id == "1") {
+                //var ora = ().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+                res.send(new Date());
+            }
             else
                 res.send(500);
         }]

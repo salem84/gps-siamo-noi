@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 app.controller('ContattaciCtrl', function($scope, Assistenza) {
-    $scope.motiviSegnalazione = ['Ho un problema', 'Aggiunta funzionalità', 'Altro...'];
+    $scope.motiviSegnalazione = ['Ho un problema', 'Aggiunta funzionalità', 'Manca una linea', 'Altro...'];
 
     $scope.selectedMotivoSegnalazione = undefined;
     $scope.descrizione = undefined;
