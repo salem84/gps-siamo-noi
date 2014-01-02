@@ -14,7 +14,7 @@ var express = require('express'),
 
 var app = express();
 
-var logFile = fs.createWriteStream('./myLogFile.log', {flags: 'a'}); //use {flags: 'w'} to open in write mode
+//var logFile = fs.createWriteStream('./myLogFile.log', {flags: 'a'}); //use {flags: 'w'} to open in write mode
 
 
 // all environments
