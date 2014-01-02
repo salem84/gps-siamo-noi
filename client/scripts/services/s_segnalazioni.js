@@ -11,19 +11,22 @@ angular.module('gsn.services.segnalazioni', ['gsn.services.rest']).
 
             direzioni: null,
 
-            note: '',
+            messaggio: '',
 
             getParteFissa: function() {
                 var parteFissa = '';
                 if (this.templateTweet) {
                     parteFissa = this.templateTweet;
-                    parteFissa = parteFissa.replace("##LINEA##", this.selectedLinea);
+                    //parteFissa = parteFissa.replace("##LINEA##", this.selectedLinea);
                     if (this.selectedDirezione) {
-                        parteFissa = parteFissa.replace("##DIREZIONE##", this.selectedDirezione.name);
+                        parteFissa = parteFissa.replace("$DIREZIONE$", this.selectedDirezione.name);
                     }
                     if (this.selectedFermata) {
-                        parteFissa = parteFissa.replace("##FERMATA##", this.selectedFermata.name);
+                        parteFissa = parteFissa.replace("$FERMATA$", this.selectedFermata.name);
                     }
+
+                    var ora = (new Date()).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+                    parteFissa = parteFissa.replace("$ORA$", ora);
 
                     //if (this.note == '') {
                     //    parteFissa = riepilogo + ' | ';
@@ -37,17 +40,22 @@ angular.module('gsn.services.segnalazioni', ['gsn.services.rest']).
                 return parteFissa;
             },
 
-            getAnteprima: function() {
-                var parteFissa = this.getParteFissa();
-                return parteFissa + ' | ' + this.note;
-            },
+            //getAnteprima: function() {
+            //    var parteFissa = this.getParteFissa();
+            //    return parteFissa + ' | ' + this.note;
+            //},
+            
 
+            //getCaratteriRimanenti: function() {
+            //    var anteprima = this.getAnteprima() || '';
+
+            //    var len = anteprima.length;
+            //    return 140 - len;
+            //}    
             getCaratteriRimanenti: function() {
-                var anteprima = this.getAnteprima() || '';
-
-                var len = anteprima.length;
+                var len = this.messaggio.length;
                 return 140 - len;
-            }            
+            }    
         };
 
         Twitter.template(function(result) {

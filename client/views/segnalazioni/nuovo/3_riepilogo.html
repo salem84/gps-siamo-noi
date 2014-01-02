@@ -2,22 +2,37 @@
 <banner class="banner-grey" testo="Hai quasi finito... vuoi aggiungere qualcosa prima di inviare il tweet?" />
 
 <div id="terzo-step" class="container nuova-segnalazione-view">
-    <div class="alert alert-info" ng-show="segnalazione.getCaratteriRimanenti() >= 0">Hai a disposizione ancora {{segnalazione.getCaratteriRimanenti()}} caratteri</div>
-    <div class="alert alert-danger" ng-show="segnalazione.getCaratteriRimanenti() < 0">Hai superato il limite di caratteri: <strong>{{segnalazione.getCaratteriRimanenti()}}</strong>.<br/>Per inviare la segnalazione devi eliminare qualcosa</div>
-
-    <div>
-        <div class="col-xs-12">
-            <textarea rows="3" ng-model="segnalazione.note"></textarea>
+    <div id="terzo-step-request" ng-show="tweetSent == undefined">
+        <div class="col-xs-12" ng-show="auth.isLoggedIn()">
+            <div class="alert alert-info" ng-show="segnalazione.getCaratteriRimanenti() >= 0">Hai a disposizione ancora {{segnalazione.getCaratteriRimanenti()}} caratteri</div>
+            <div class="alert alert-danger" ng-show="segnalazione.getCaratteriRimanenti() < 0">Hai superato il limite di caratteri: <strong>{{segnalazione.getCaratteriRimanenti()}}</strong>.<br />Per inviare la segnalazione devi eliminare qualcosa</div>
         </div>
 
-        <div class="col-xs-12">
-            <p><strong>Questo &egrave; il post che stai inviando:</strong></p>
-            <p class="anteprima"><em>{{segnalazione.getAnteprima()}}</em></p>
+        <div class="col-xs-12" ng-hide="auth.isLoggedIn()">
+            <div class="alert alert-info">Loggandoti con il tuo account Twitter, potrai modificare il tweet e inviarlo direttamente con il tuo account</div>
         </div>
 
-    </div>
-    <div class="col-lg-4 col-xs-12 text-center">
-        <button class="button btn-danger" ng-click="submitSegnalazione()" ng-hide="segnalazione.getCaratteriRimanenti() < 0">Invia</button>
+        <div>
+            <div class="col-xs-12" ng-show="auth.isLoggedIn()">
+                <textarea rows="3" ng-model="segnalazione.messaggio"></textarea>
+            </div>
+
+
+            <div class="col-xs-12" ng-hide="auth.isLoggedIn()">
+                <p><strong>Questo &egrave; il post che stai inviando:</strong></p>
+                <p class="anteprima"><em>{{segnalazione.messaggio}}</em></p>
+            </div>
+
+        </div>
+        <div class="col-lg-4 col-xs-12 text-center">
+            <button class="button btn-danger" ng-click="submitSegnalazione()" ng-hide="segnalazione.getCaratteriRimanenti() < 0">Invia</button>
+        </div>
     </div>
 
+    <div id="terzo-step-result" ng-show="tweetSent != undefined">
+
+        <div class="alert alert-info" ng-show="tweetSent == true">Tweet inviato correttamente</div>
+        <div class="alert alert-danger" ng-show="tweetSent == false">Errore durante l'invio del tweet. Riprovare</div>
+    </div>
 </div>
+

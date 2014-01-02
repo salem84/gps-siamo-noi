@@ -67,19 +67,28 @@ app.controller('NuovaSegnalazione_FermataCtrl', function($scope, $location, Line
     };
 });
 
-app.controller('NuovaSegnalazione_RiepilogoCtrl', function($scope, $location, Twitter, DatiInvioSegnalazione) {
+app.controller('NuovaSegnalazione_RiepilogoCtrl', function($scope, $location, Twitter, DatiInvioSegnalazione, Auth) {
     $scope.segnalazione = DatiInvioSegnalazione;
+    $scope.auth = Auth;
     $scope.currentStep = 3;
 
-    var request = {        
-        note : $scope.segnalazione.note,
-        selectedLinea: $scope.segnalazione.selectedLinea,
-        selectedDirezione: $scope.segnalazione.selectedDirezione.name,
-        selectedFermata: $scope.segnalazione.selectedFermata.name
-    };
+    
+    $scope.segnalazione.messaggio = $scope.segnalazione.getParteFissa();
+    $scope.tweetSent = undefined;
     
     
     $scope.submitSegnalazione = function() {
-        Twitter.post(request);
+        var request = {
+            messaggio: $scope.segnalazione.messaggio,
+            selectedLinea: $scope.segnalazione.selectedLinea,
+            selectedDirezione: $scope.segnalazione.selectedDirezione.name,
+            selectedFermata: $scope.segnalazione.selectedFermata.name,
+            isAuthenticated: $scope.auth.isLoggedIn()
+        };
+
+        Twitter.post(request).$promise.then(
+            function(value) { $scope.tweetSent = true; },      
+            function(error) { $scope.tweetSent = false; }
+        );
     };
 });

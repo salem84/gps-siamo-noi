@@ -46,6 +46,8 @@ module.exports = {
             },
             function(token, tokenSecret, profile, done) {
                 var user = module.exports.findOrCreateOauthUser(profile);
+                user.default_access_token = token;
+                user.default_access_token_secret = tokenSecret;
                 done(null, user);
             });
     },

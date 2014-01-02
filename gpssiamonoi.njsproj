@@ -49,6 +49,7 @@
     <Compile Include="server\config.js" />
     <Compile Include="client\scripts\controllers\c_nav.js" />
     <Compile Include="server\controllers\assistenza.js" />
+    <Compile Include="server\logger.js" />
     <Compile Include="server\models\User.js" />
     <Compile Include="server\routes.js" />
     <Compile Include="server\controllers\linee.js" />

@@ -1,14 +1,9 @@
 ﻿var Twit = require('twit');
 var config = require('../config');
-var T = new Twit({
-    consumer_key: config.twitter.consumer_key,
-    consumer_secret: config.twitter.consumer_secret,
-    access_token: config.twitter.default_access_token,
-    access_token_secret: config.twitter.default_access_token_secret
-});
+
 
 function getStringNewPostTemplate() {
-    return '#test ##LINEA## --> ##DIREZIONE## @ ##FERMATA##';
+    return '#test $DIREZIONE$ - $FERMATA$ @$ORA$';
 }
 
 function parseTwitterDate(text) {
@@ -48,6 +43,46 @@ function parseTweet(t) {
     return tweet;
 }
 
+function createTwitterWrapper(isAuthenticated, user) {
+    //Se non sono loggato o sto inviando con l'account associato all'app
+    if (isAuthenticated) {
+        var T = new Twit({
+            consumer_key: config.twitter.consumer_key,
+            consumer_secret: config.twitter.consumer_secret,
+            access_token: user.default_access_token,
+            access_token_secret: user.default_access_token_secret
+        });
+       
+        return T;
+    } else {
+         var T = new Twit({
+            consumer_key: config.twitter.consumer_key,
+            consumer_secret: config.twitter.consumer_secret,
+            access_token: config.twitter.default_access_token,
+            access_token_secret: config.twitter.default_access_token_secret
+        });
+        
+        return T;
+    }
+}
+
+function createStandardMessage(req) {
+    var msg = getStringNewPostTemplate();
+
+    //msg = msg.replace("##LINEA##", req.body.selectedLinea);
+    if (req.body.selectedDirezione) {
+        msg = msg.replace("$DIREZIONE$", req.body.selectedDirezione);
+    }
+    if (req.body.selectedFermata) {
+        msg = msg.replace("$FERMATA$", req.body.selectedFermata);
+    }
+
+    var ora = (new Date()).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+    msg = msg.replace("$ORA$", ora);
+
+    return msg;
+}
+
 
 // --------------------------- EXPORT
 
@@ -67,6 +102,7 @@ module.exports = {
             res.send(400);
         }
 
+        var T = createTwitterWrapper(true);
         T.get('statuses/user_timeline', { screen_name: screenName, count: pageSize, max_id: maxId }, function(err, reply) {
             var array = [];
             for (i in reply) {
@@ -84,7 +120,7 @@ module.exports = {
             }
             res.json(array);
         });
-    },    
+    },
 
     getProfile: function(req, res) {
         var screenName = req.params.screenName;
@@ -93,14 +129,16 @@ module.exports = {
             res.send(400);
         }
 
+        var T = createTwitterWrapper(true);
         T.get('users/lookup', { screen_name: screenName }, function(err, reply) {
             res.json(reply);
         });
-    },    
+    },
 
     getAllProfiles: function(req, res) {
         var screenNames = getValidTwitterScreenNames();
         var screenNamesCommaSeparated = screenNames.join(",");
+        var T = createTwitterWrapper(true);
         T.get('users/lookup', { screen_name: screenNamesCommaSeparated }, function(err, reply) {
             var array = [];
             for (i in reply) {
@@ -120,44 +158,43 @@ module.exports = {
     },
 
     sendTweet: function(req, res) {
-        var isStandard;
-        if (req.body.isStandard == false) {
-            isStandard = false;
+        var isAuthenticated;
+        if (req.body.isAuthenticated && req.user) {
+            isAuthenticated = true;
         } else {
-            isStandard = true;
+            isAuthenticated = false;
         }
 
         var msg;
-        if (isStandard) {
-            msg = getStringNewPostTemplate();
+        var T = createTwitterWrapper(isAuthenticated, req.user);
+        if (!isAuthenticated) {
+            
+            msg = createStandardMessage(req);
 
-            msg = msg.replace("##LINEA##", req.body.selectedLinea);
-            if (req.body.selectedDirezione) {
-                msg = msg.replace("##DIREZIONE##", req.body.selectedDirezione);
-            }
-            if (req.body.selectedFermata) {
-                msg = msg.replace("##FERMATA##", req.body.selectedFermata);
-            }
-
-        } else {
-            msg = req.body.note;
+        } else {    
+            msg = req.body.messaggio;
+        }
+        
+        //TODO se anche quello standard supera la lunghezza di 140 caratteri?
+        if (msg.length > 140) {
+            msg = createStandardMessage(req);
         }
 
 
-        res.send(msg);
-        //T.post('statuses/update', { status: msg }, function(err, reply) {
-        //    if (err)
-        //        res.send(500);
-        //    else
-        //        res.send(200);
-        //});
+        //res.send(msg);
+        T.post('statuses/update', { status: msg }, function(err, reply) {
+            if (err)
+                res.send(500);
+            else
+                res.send(200);
+        });
 
 
     },
 
     getTemplateTweet: function(req, res) {
         var result = {
-            newPost: getStringNewPostTemplate()        
+            newPost: getStringNewPostTemplate()
         };
         res.json(result);
     }
