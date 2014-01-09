@@ -9,7 +9,7 @@
                 <div class="input-group input-group-lg" ng-class="{ 'has-success': lineaValida , 'has-error': !lineaValida}">
                     <span class="input-group-addon">#</span>
                     <!--<input type="text" class="form-control" placeholder="Numero" ng-model="segnalazione.selectedLinea">-->
-                    <input type="text" ng-model="segnalazione.selectedLinea" typeahead="linea.name for linea in linee | limitTo:8" class="form-control" >
+                    <input type="text" ng-model="segnalazione.selectedLinea" typeahead="linea.name for linea in linee | filter:$viewValue | limitTo:8" class="form-control">
                 </div>
             </div>
 
