@@ -1,1 +1,196 @@
-{"name":"FC2","long_name":"Train FC2","type":"light_rail","direzioni":[{"id_relation":"1721156","name":"Cristoforo Colombo → Roma Porta San Paolo","fermate":[{"id_node":"390841960","codice":"","name":"Cristoforo Colombo","ordine":1,"latitudine":"41.7145146","longitudine":"12.3219552"},{"id_node":"332297384","codice":"","name":"Castel Fusano","ordine":2,"latitudine":"41.720476","longitudine":"12.309033"},{"id_node":"332297665","codice":"","name":"Stella Polare","ordine":3,"latitudine":"41.7271585","longitudine":"12.2953457"},{"id_node":"332297712","codice":"","name":"Lido Centro","ordine":4,"latitudine":"41.7332001","longitudine":"12.2841734"},{"id_node":"388100723","codice":"","name":"Lido Nord","ordine":5,"latitudine":"41.7404251","longitudine":"12.2845622"},{"id_node":"332292142","codice":"","name":"Ostia Antica","ordine":6,"latitudine":"41.7563089","longitudine":"12.3021594"},{"id_node":"298116120","codice":"","name":"Acilia","ordine":7,"latitudine":"41.7835343","longitudine":"12.3608521"},{"id_node":"298115395","codice":"","name":"Casal Bernocchi - Centro Giano","ordine":8,"latitudine":"41.789627","longitudine":"12.3778842"},{"id_node":"1313285478","codice":"","name":"Vitinia","ordine":9,"latitudine":"41.7953268","longitudine":"12.4038764"},{"id_node":"1313285481","codice":"","name":"Tor di Valle","ordine":10,"latitudine":"41.8195321","longitudine":"12.4367553"},{"id_node":"1313285468","codice":"","name":"EUR Magliana","ordine":11,"latitudine":"41.8395597","longitudine":"12.4633029"},{"id_node":"1313285484","codice":"","name":"Basilica San Paolo","ordine":12,"latitudine":"41.8558883","longitudine":"12.4781845"},{"id_node":"1313285442","codice":"","name":"Roma Porta San Paolo","ordine":13,"latitudine":"41.8750004","longitudine":"12.4817655"}]},{"id_relation":"208013","name":"Roma Porta San Paolo → Cristoforo Colombo","fermate":[{"id_node":"1313285442","codice":"","name":"Roma Porta San Paolo","ordine":1,"latitudine":"41.8750004","longitudine":"12.4817655"},{"id_node":"1313285484","codice":"","name":"Basilica San Paolo","ordine":2,"latitudine":"41.8558883","longitudine":"12.4781845"},{"id_node":"1313285468","codice":"","name":"EUR Magliana","ordine":3,"latitudine":"41.8395597","longitudine":"12.4633029"},{"id_node":"1313285481","codice":"","name":"Tor di Valle","ordine":4,"latitudine":"41.8195321","longitudine":"12.4367553"},{"id_node":"1313285478","codice":"","name":"Vitinia","ordine":5,"latitudine":"41.7953268","longitudine":"12.4038764"},{"id_node":"298115395","codice":"","name":"Casal Bernocchi - Centro Giano","ordine":6,"latitudine":"41.789627","longitudine":"12.3778842"},{"id_node":"298116120","codice":"","name":"Acilia","ordine":7,"latitudine":"41.7835343","longitudine":"12.3608521"},{"id_node":"332292142","codice":"","name":"Ostia Antica","ordine":8,"latitudine":"41.7563089","longitudine":"12.3021594"},{"id_node":"388100723","codice":"","name":"Lido Nord","ordine":9,"latitudine":"41.7404251","longitudine":"12.2845622"},{"id_node":"332297712","codice":"","name":"Lido Centro","ordine":10,"latitudine":"41.7332001","longitudine":"12.2841734"},{"id_node":"332297665","codice":"","name":"Stella Polare","ordine":11,"latitudine":"41.7271585","longitudine":"12.2953457"},{"id_node":"332297384","codice":"","name":"Castel Fusano","ordine":12,"latitudine":"41.720476","longitudine":"12.309033"},{"id_node":"390841960","codice":"","name":"Cristoforo Colombo","ordine":13,"latitudine":"41.7145146","longitudine":"12.3219552"}]}]}
+{
+    "name": "FC2",
+    "long_name": "Train FC2",
+    "type": "light_rail",
+    "direzioni": [{
+        "id_relation": "1721156",
+        "name": "Cristoforo Colombo → Roma Porta San Paolo",
+        "fermate": [{
+            "id_node": "390841960",
+            "codice": "",
+            "name": "Cristoforo Colombo",
+            "ordine": 1,
+            "latitudine": "41.7145146",
+            "longitudine": "12.3219552"
+        }, {
+            "id_node": "332297384",
+            "codice": "",
+            "name": "Castel Fusano",
+            "ordine": 2,
+            "latitudine": "41.720476",
+            "longitudine": "12.309033"
+        }, {
+            "id_node": "332297665",
+            "codice": "",
+            "name": "Stella Polare",
+            "ordine": 3,
+            "latitudine": "41.7271585",
+            "longitudine": "12.2953457"
+        }, {
+            "id_node": "332297712",
+            "codice": "",
+            "name": "Lido Centro",
+            "ordine": 4,
+            "latitudine": "41.7332001",
+            "longitudine": "12.2841734"
+        }, {
+            "id_node": "388100723",
+            "codice": "",
+            "name": "Lido Nord",
+            "ordine": 5,
+            "latitudine": "41.7404251",
+            "longitudine": "12.2845622"
+        }, {
+            "id_node": "332292142",
+            "codice": "",
+            "name": "Ostia Antica",
+            "ordine": 6,
+            "latitudine": "41.7563089",
+            "longitudine": "12.3021594"
+        }, {
+            "id_node": "298116120",
+            "codice": "",
+            "name": "Acilia",
+            "ordine": 7,
+            "latitudine": "41.7835343",
+            "longitudine": "12.3608521"
+        }, {
+            "id_node": "298115395",
+            "codice": "",
+            "name": "Casal Bernocchi - Centro Giano",
+            "ordine": 8,
+            "latitudine": "41.789627",
+            "longitudine": "12.3778842"
+        }, {
+            "id_node": "1313285478",
+            "codice": "",
+            "name": "Vitinia",
+            "ordine": 9,
+            "latitudine": "41.7953268",
+            "longitudine": "12.4038764"
+        }, {
+            "id_node": "1313285481",
+            "codice": "",
+            "name": "Tor di Valle",
+            "ordine": 10,
+            "latitudine": "41.8195321",
+            "longitudine": "12.4367553"
+        }, {
+            "id_node": "1313285468",
+            "codice": "",
+            "name": "EUR Magliana",
+            "ordine": 11,
+            "latitudine": "41.8395597",
+            "longitudine": "12.4633029"
+        }, {
+            "id_node": "1313285484",
+            "codice": "",
+            "name": "Basilica San Paolo",
+            "ordine": 12,
+            "latitudine": "41.8558883",
+            "longitudine": "12.4781845"
+        }, {
+            "id_node": "1313285442",
+            "codice": "",
+            "name": "Roma Porta San Paolo",
+            "ordine": 13,
+            "latitudine": "41.8750004",
+            "longitudine": "12.4817655"
+        }]
+    }, {
+        "id_relation": "208013",
+        "name": "Roma Porta San Paolo → Cristoforo Colombo",
+        "fermate": [{
+            "id_node": "1313285442",
+            "codice": "",
+            "name": "Roma Porta San Paolo",
+            "ordine": 1,
+            "latitudine": "41.8750004",
+            "longitudine": "12.4817655"
+        }, {
+            "id_node": "1313285484",
+            "codice": "",
+            "name": "Basilica San Paolo",
+            "ordine": 2,
+            "latitudine": "41.8558883",
+            "longitudine": "12.4781845"
+        }, {
+            "id_node": "1313285468",
+            "codice": "",
+            "name": "EUR Magliana",
+            "ordine": 3,
+            "latitudine": "41.8395597",
+            "longitudine": "12.4633029"
+        }, {
+            "id_node": "1313285481",
+            "codice": "",
+            "name": "Tor di Valle",
+            "ordine": 4,
+            "latitudine": "41.8195321",
+            "longitudine": "12.4367553"
+        }, {
+            "id_node": "1313285478",
+            "codice": "",
+            "name": "Vitinia",
+            "ordine": 5,
+            "latitudine": "41.7953268",
+            "longitudine": "12.4038764"
+        }, {
+            "id_node": "298115395",
+            "codice": "",
+            "name": "Casal Bernocchi - Centro Giano",
+            "ordine": 6,
+            "latitudine": "41.789627",
+            "longitudine": "12.3778842"
+        }, {
+            "id_node": "298116120",
+            "codice": "",
+            "name": "Acilia",
+            "ordine": 7,
+            "latitudine": "41.7835343",
+            "longitudine": "12.3608521"
+        }, {
+            "id_node": "332292142",
+            "codice": "",
+            "name": "Ostia Antica",
+            "ordine": 8,
+            "latitudine": "41.7563089",
+            "longitudine": "12.3021594"
+        }, {
+            "id_node": "388100723",
+            "codice": "",
+            "name": "Lido Nord",
+            "ordine": 9,
+            "latitudine": "41.7404251",
+            "longitudine": "12.2845622"
+        }, {
+            "id_node": "332297712",
+            "codice": "",
+            "name": "Lido Centro",
+            "ordine": 10,
+            "latitudine": "41.7332001",
+            "longitudine": "12.2841734"
+        }, {
+            "id_node": "332297665",
+            "codice": "",
+            "name": "Stella Polare",
+            "ordine": 11,
+            "latitudine": "41.7271585",
+            "longitudine": "12.2953457"
+        }, {
+            "id_node": "332297384",
+            "codice": "",
+            "name": "Castel Fusano",
+            "ordine": 12,
+            "latitudine": "41.720476",
+            "longitudine": "12.309033"
+        }, {
+            "id_node": "390841960",
+            "codice": "",
+            "name": "Cristoforo Colombo",
+            "ordine": 13,
+            "latitudine": "41.7145146",
+            "longitudine": "12.3219552"
+        }]
+    }]
+}

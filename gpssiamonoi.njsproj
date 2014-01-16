@@ -32,6 +32,7 @@
     <Content Include="linee\8.json" />
     <Content Include="linee\roma-giardinetti.json" />
     <Content Include="linee\roma-lido.json" />
+    <Content Include="linee\roma-viterbo.bak" />
     <Content Include="linee\roma-viterbo.json" />
     <Content Include="package.json" />
     <Compile Include="app.js" />

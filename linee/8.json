@@ -1,1 +1,248 @@
-{"name":"8","long_name":"Tram 8","type":"tram","direzioni":[{"id_relation":"1674659","name":"8 (Venezia → Casaletto)","fermate":[{"id_node":"2207574156","codice":"","name":"Venezia","ordine":1,"latitudine":"41.8951682","longitudine":"12.4810053"},{"id_node":"1149331906","codice":"","name":"Arenula/Cairoli","ordine":2,"latitudine":"41.8937514","longitudine":"12.4757053"},{"id_node":"1117042442","codice":"","name":"Arenula/Min. G. Giustizia","ordine":3,"latitudine":"41.8924235","longitudine":"12.4747948"},{"id_node":"610686402","codice":"","name":"Belli","ordine":4,"latitudine":"41.8901014","longitudine":"12.4742697"},{"id_node":"1675920560","codice":"","name":"Trastevere/Mastai","ordine":5,"latitudine":"41.8870599","longitudine":"12.4724512"},{"id_node":"610686390","codice":"","name":"Trastevere/Min. P. Istruzione","ordine":6,"latitudine":"41.8848067","longitudine":"12.4704979"},{"id_node":"1675888683","codice":"","name":"Trastevere/Bernard. da Feltre","ordine":7,"latitudine":"41.8831704","longitudine":"12.4690994"},{"id_node":"610686392","codice":"","name":"Ippolito Nievo","ordine":8,"latitudine":"41.8806113","longitudine":"12.4671105"},{"id_node":"1675888712","codice":"","name":"Trastevere/Pascarella","ordine":9,"latitudine":"41.8771454","longitudine":"12.4656848"},{"id_node":"1675888676","codice":"","name":"Staz.ne Trastevere","ordine":10,"latitudine":"41.8733563","longitudine":"12.4653555"},{"id_node":"610686396","codice":"","name":"Gianicolense/Ponte Bianco","ordine":11,"latitudine":"41.8719986","longitudine":"12.4599113"},{"id_node":"610686397","codice":"","name":"Gianicolense/San Camillo","ordine":12,"latitudine":"41.8705086","longitudine":"12.4550153"},{"id_node":"610686398","codice":"","name":"Gianicolense/Ravizza","ordine":13,"latitudine":"41.8715936","longitudine":"12.4499018"},{"id_node":"309894522","codice":"","name":"S. Giovanni di Dio","ordine":14,"latitudine":"41.8746996","longitudine":"12.4465957"},{"id_node":"610686400","codice":"","name":"Gianicolense/Colli Portuensi","ordine":15,"latitudine":"41.8772255","longitudine":"12.4421134"},{"id_node":"1122790608","codice":"","name":"Casaletto","ordine":16,"latitudine":"41.8775359","longitudine":"12.4402843"}]},{"id_relation":"385213","name":"8 (Casaletto → Venezia)","fermate":[{"id_node":"610686409","codice":"","name":"Casaletto","ordine":1,"latitudine":"41.8773693","longitudine":"12.4401918"},{"id_node":"610686400","codice":"","name":"Gianicolense/Colli Portuensi","ordine":2,"latitudine":"41.8772255","longitudine":"12.4421134"},{"id_node":"309894522","codice":"","name":"S. Giovanni di Dio","ordine":3,"latitudine":"41.8746996","longitudine":"12.4465957"},{"id_node":"610686398","codice":"","name":"Gianicolense/Ravizza","ordine":4,"latitudine":"41.8715936","longitudine":"12.4499018"},{"id_node":"610686397","codice":"","name":"Gianicolense/San Camillo","ordine":5,"latitudine":"41.8705086","longitudine":"12.4550153"},{"id_node":"610686396","codice":"","name":"Gianicolense/Ponte Bianco","ordine":6,"latitudine":"41.8719986","longitudine":"12.4599113"},{"id_node":"1675888676","codice":"","name":"Staz.ne Trastevere","ordine":7,"latitudine":"41.8733563","longitudine":"12.4653555"},{"id_node":"1675888706","codice":"","name":"Trastevere/Pascarella","ordine":8,"latitudine":"41.8764712","longitudine":"12.4657416"},{"id_node":"610686392","codice":"","name":"Ippolito Nievo","ordine":9,"latitudine":"41.8806113","longitudine":"12.4671105"},{"id_node":"1675888683","codice":"","name":"Trastevere/Bernard. da Feltre","ordine":10,"latitudine":"41.8831704","longitudine":"12.4690994"},{"id_node":"610686390","codice":"","name":"Trastevere/Min. P. Istruzione","ordine":11,"latitudine":"41.8848067","longitudine":"12.4704979"},{"id_node":"1675920562","codice":"","name":"Trastevere/Mastai","ordine":12,"latitudine":"41.8875324","longitudine":"12.4728477"},{"id_node":"610686402","codice":"","name":"Belli","ordine":13,"latitudine":"41.8901014","longitudine":"12.4742697"},{"id_node":"1117042442","codice":"","name":"Arenula/Min. G. Giustizia","ordine":14,"latitudine":"41.8924235","longitudine":"12.4747948"},{"id_node":"1149331906","codice":"","name":"Arenula/Cairoli","ordine":15,"latitudine":"41.8937514","longitudine":"12.4757053"},{"id_node":"2207574156","codice":"","name":"Venezia","ordine":16,"latitudine":"41.8951682","longitudine":"12.4810053"}]}]}
+{
+    "name": "8",
+    "long_name": "Tram 8",
+    "type": "tram",
+    "direzioni": [{
+        "id_relation": "1674659",
+        "name": "8 (Venezia → Casaletto)",
+        "fermate": [{
+            "id_node": "2207574156",
+            "codice": "",
+            "name": "Venezia",
+            "ordine": 1,
+            "latitudine": "41.8951682",
+            "longitudine": "12.4810053"
+        }, {
+            "id_node": "1149331906",
+            "codice": "",
+            "name": "Arenula/Cairoli",
+            "ordine": 2,
+            "latitudine": "41.8937514",
+            "longitudine": "12.4757053",
+			"visibile": false
+        }, {
+            "id_node": "1117042442",
+            "codice": "",
+            "name": "Arenula/Min. G. Giustizia",
+            "ordine": 3,
+            "latitudine": "41.8924235",
+            "longitudine": "12.4747948"
+        }, {
+            "id_node": "610686402",
+            "codice": "",
+            "name": "Belli",
+            "ordine": 4,
+            "latitudine": "41.8901014",
+            "longitudine": "12.4742697"
+        }, {
+            "id_node": "1675920560",
+            "codice": "",
+            "name": "Trastevere/Mastai",
+            "ordine": 5,
+            "latitudine": "41.8870599",
+            "longitudine": "12.4724512"
+        }, {
+            "id_node": "610686390",
+            "codice": "",
+            "name": "Trastevere/Min. P. Istruzione",
+            "ordine": 6,
+            "latitudine": "41.8848067",
+            "longitudine": "12.4704979"
+        }, {
+            "id_node": "1675888683",
+            "codice": "",
+            "name": "Trastevere/Bernard. da Feltre",
+            "ordine": 7,
+            "latitudine": "41.8831704",
+            "longitudine": "12.4690994",
+			"visibile": false
+        }, {
+            "id_node": "610686392",
+            "codice": "",
+            "name": "Ippolito Nievo",
+            "ordine": 8,
+            "latitudine": "41.8806113",
+            "longitudine": "12.4671105"
+        }, {
+            "id_node": "1675888712",
+            "codice": "",
+            "name": "Trastevere/Pascarella",
+            "ordine": 9,
+            "latitudine": "41.8771454",
+            "longitudine": "12.4656848",
+			"visibile": false
+        }, {
+            "id_node": "1675888676",
+            "codice": "",
+            "name": "Staz.ne Trastevere",
+            "ordine": 10,
+            "latitudine": "41.8733563",
+            "longitudine": "12.4653555"
+        }, {
+            "id_node": "610686396",
+            "codice": "",
+            "name": "Gianicolense/Ponte Bianco",
+            "ordine": 11,
+            "latitudine": "41.8719986",
+            "longitudine": "12.4599113"
+        }, {
+            "id_node": "610686397",
+            "codice": "",
+            "name": "Gianicolense/San Camillo",
+            "ordine": 12,
+            "latitudine": "41.8705086",
+            "longitudine": "12.4550153"
+        }, {
+            "id_node": "610686398",
+            "codice": "",
+            "name": "Gianicolense/Ravizza",
+            "ordine": 13,
+            "latitudine": "41.8715936",
+            "longitudine": "12.4499018",
+			"visibile": false
+        }, {
+            "id_node": "309894522",
+            "codice": "",
+            "name": "S. Giovanni di Dio",
+            "ordine": 14,
+            "latitudine": "41.8746996",
+            "longitudine": "12.4465957"
+        }, {
+            "id_node": "610686400",
+            "codice": "",
+            "name": "Gianicolense/Colli Portuensi",
+            "ordine": 15,
+            "latitudine": "41.8772255",
+            "longitudine": "12.4421134",
+			"visibile": false
+        }, {
+            "id_node": "1122790608",
+            "codice": "",
+            "name": "Casaletto",
+            "ordine": 16,
+            "latitudine": "41.8775359",
+            "longitudine": "12.4402843"
+        }]
+    }, {
+        "id_relation": "385213",
+        "name": "8 (Casaletto → Venezia)",
+        "fermate": [{
+            "id_node": "610686409",
+            "codice": "",
+            "name": "Casaletto",
+            "ordine": 1,
+            "latitudine": "41.8773693",
+            "longitudine": "12.4401918"
+        }, {
+            "id_node": "610686400",
+            "codice": "",
+            "name": "Gianicolense/Colli Portuensi",
+            "ordine": 2,
+            "latitudine": "41.8772255",
+            "longitudine": "12.4421134",
+			"visibile": false
+        }, {
+            "id_node": "309894522",
+            "codice": "",
+            "name": "S. Giovanni di Dio",
+            "ordine": 3,
+            "latitudine": "41.8746996",
+            "longitudine": "12.4465957"
+        }, {
+            "id_node": "610686398",
+            "codice": "",
+            "name": "Gianicolense/Ravizza",
+            "ordine": 4,
+            "latitudine": "41.8715936",
+            "longitudine": "12.4499018",
+			"visibile": false
+        }, {
+            "id_node": "610686397",
+            "codice": "",
+            "name": "Gianicolense/San Camillo",
+            "ordine": 5,
+            "latitudine": "41.8705086",
+            "longitudine": "12.4550153"
+        }, {
+            "id_node": "610686396",
+            "codice": "",
+            "name": "Gianicolense/Ponte Bianco",
+            "ordine": 6,
+            "latitudine": "41.8719986",
+            "longitudine": "12.4599113"
+        }, {
+            "id_node": "1675888676",
+            "codice": "",
+            "name": "Staz.ne Trastevere",
+            "ordine": 7,
+            "latitudine": "41.8733563",
+            "longitudine": "12.4653555"
+        }, {
+            "id_node": "1675888706",
+            "codice": "",
+            "name": "Trastevere/Pascarella",
+            "ordine": 8,
+            "latitudine": "41.8764712",
+            "longitudine": "12.4657416",
+			"visibile": false
+        }, {
+            "id_node": "610686392",
+            "codice": "",
+            "name": "Ippolito Nievo",
+            "ordine": 9,
+            "latitudine": "41.8806113",
+            "longitudine": "12.4671105"
+        }, {
+            "id_node": "1675888683",
+            "codice": "",
+            "name": "Trastevere/Bernard. da Feltre",
+            "ordine": 10,
+            "latitudine": "41.8831704",
+            "longitudine": "12.4690994",
+			"visibile": false
+        }, {
+            "id_node": "610686390",
+            "codice": "",
+            "name": "Trastevere/Min. P. Istruzione",
+            "ordine": 11,
+            "latitudine": "41.8848067",
+            "longitudine": "12.4704979"
+        }, {
+            "id_node": "1675920562",
+            "codice": "",
+            "name": "Trastevere/Mastai",
+            "ordine": 12,
+            "latitudine": "41.8875324",
+            "longitudine": "12.4728477"
+        }, {
+            "id_node": "610686402",
+            "codice": "",
+            "name": "Belli",
+            "ordine": 13,
+            "latitudine": "41.8901014",
+            "longitudine": "12.4742697"
+        }, {
+            "id_node": "1117042442",
+            "codice": "",
+            "name": "Arenula/Min. G. Giustizia",
+            "ordine": 14,
+            "latitudine": "41.8924235",
+            "longitudine": "12.4747948"
+        }, {
+            "id_node": "1149331906",
+            "codice": "",
+            "name": "Arenula/Cairoli",
+            "ordine": 15,
+            "latitudine": "41.8937514",
+            "longitudine": "12.4757053",
+			"visibile": false
+        }, {
+            "id_node": "2207574156",
+            "codice": "",
+            "name": "Venezia",
+            "ordine": 16,
+            "latitudine": "41.8951682",
+            "longitudine": "12.4810053"
+        }]
+    }]
+}

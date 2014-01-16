@@ -373,4 +373,8 @@ a {
 }
 
 
-
+@media screen and (max-height: 400px) {
+    .navbar {
+        display: none;
+    }
+}

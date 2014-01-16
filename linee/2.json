@@ -1,1 +1,126 @@
-{"name":"2","long_name":"Tram 2","type":"tram","direzioni":[{"id_relation":"1674643","name":"2 (Flaminio → Mancini)","fermate":[{"id_node":"837210120","codice":"","name":"Flaminio","ordine":1,"latitudine":"41.9123271","longitudine":"12.4756469"},{"id_node":"1117936387","codice":"","name":"Ministero Marina","ordine":2,"latitudine":"41.9156826","longitudine":"12.4742395"},{"id_node":"1117942223","codice":"","name":"Flaminia/Belle Arti","ordine":3,"latitudine":"41.9200205","longitudine":"12.4725653"},{"id_node":"617154139","codice":"","name":"Ankara/Tiziano","ordine":4,"latitudine":"41.9243291","longitudine":"12.4715214"},{"id_node":"617154141","codice":"","name":"Apollodoro","ordine":5,"latitudine":"41.928444","longitudine":"12.4698259"},{"id_node":"617154144","codice":"","name":"Tiziano/XVII Olimpiade","ordine":6,"latitudine":"41.9322331","longitudine":"12.4683001"},{"id_node":"617154147","codice":"","name":"Pinturicchio","ordine":7,"latitudine":"41.9326762","longitudine":"12.4667581"},{"id_node":"539006607","codice":"","name":"Mancini","ordine":8,"latitudine":"41.9306959","longitudine":"12.4648596"}]},{"id_relation":"394023","name":"2 (Mancini → Flaminio)","fermate":[{"id_node":"539006607","codice":"","name":"Mancini","ordine":1,"latitudine":"41.9306959","longitudine":"12.4648596"},{"id_node":"617158105","codice":"","name":"Carracci","ordine":2,"latitudine":"41.9299302","longitudine":"12.4679704"},{"id_node":"617158109","codice":"","name":"Flaminia/Reni","ordine":3,"latitudine":"41.9288592","longitudine":"12.4689268"},{"id_node":"617158113","codice":"","name":"Flaminia/Fracassini","ordine":4,"latitudine":"41.924004","longitudine":"12.4709052"},{"id_node":"617158152","codice":"","name":"Flaminia/Belle Arti","ordine":5,"latitudine":"41.9206322","longitudine":"12.4722862"},{"id_node":"295394476","codice":"","name":"Belle Arti","ordine":6,"latitudine":"41.9184568","longitudine":"12.4730455"},{"id_node":"295811051","codice":"","name":"Ministero Marina","ordine":7,"latitudine":"41.9155312","longitudine":"12.4742642"},{"id_node":"837210120","codice":"","name":"Flaminio","ordine":8,"latitudine":"41.9123271","longitudine":"12.4756469"}]}]}
+{
+    "name": "2",
+    "long_name": "Tram 2",
+    "type": "tram",
+    "direzioni": [{
+        "id_relation": "1674643",
+        "name": "2 (Flaminio → Mancini)",
+        "fermate": [{
+            "id_node": "837210120",
+            "codice": "",
+            "name": "Flaminio",
+            "ordine": 1,
+            "latitudine": "41.9123271",
+            "longitudine": "12.4756469"
+        }, {
+            "id_node": "1117936387",
+            "codice": "",
+            "name": "Ministero Marina",
+            "ordine": 2,
+            "latitudine": "41.9156826",
+            "longitudine": "12.4742395"
+        }, {
+            "id_node": "1117942223",
+            "codice": "",
+            "name": "Flaminia/Belle Arti",
+            "ordine": 3,
+            "latitudine": "41.9200205",
+            "longitudine": "12.4725653"
+        }, {
+            "id_node": "617154139",
+            "codice": "",
+            "name": "Ankara/Tiziano",
+            "ordine": 4,
+            "latitudine": "41.9243291",
+            "longitudine": "12.4715214"
+        }, {
+            "id_node": "617154141",
+            "codice": "",
+            "name": "Apollodoro",
+            "ordine": 5,
+            "latitudine": "41.928444",
+            "longitudine": "12.4698259"
+        }, {
+            "id_node": "617154144",
+            "codice": "",
+            "name": "Tiziano/XVII Olimpiade",
+            "ordine": 6,
+            "latitudine": "41.9322331",
+            "longitudine": "12.4683001"
+        }, {
+            "id_node": "617154147",
+            "codice": "",
+            "name": "Pinturicchio",
+            "ordine": 7,
+            "latitudine": "41.9326762",
+            "longitudine": "12.4667581"
+        }, {
+            "id_node": "539006607",
+            "codice": "",
+            "name": "Mancini",
+            "ordine": 8,
+            "latitudine": "41.9306959",
+            "longitudine": "12.4648596"
+        }]
+    }, {
+        "id_relation": "394023",
+        "name": "2 (Mancini → Flaminio)",
+        "fermate": [{
+            "id_node": "539006607",
+            "codice": "",
+            "name": "Mancini",
+            "ordine": 1,
+            "latitudine": "41.9306959",
+            "longitudine": "12.4648596"
+        }, {
+            "id_node": "617158105",
+            "codice": "",
+            "name": "Carracci",
+            "ordine": 2,
+            "latitudine": "41.9299302",
+            "longitudine": "12.4679704"
+        }, {
+            "id_node": "617158109",
+            "codice": "",
+            "name": "Flaminia/Reni",
+            "ordine": 3,
+            "latitudine": "41.9288592",
+            "longitudine": "12.4689268"
+        }, {
+            "id_node": "617158113",
+            "codice": "",
+            "name": "Flaminia/Fracassini",
+            "ordine": 4,
+            "latitudine": "41.924004",
+            "longitudine": "12.4709052"
+        }, {
+            "id_node": "617158152",
+            "codice": "",
+            "name": "Flaminia/Belle Arti",
+            "ordine": 5,
+            "latitudine": "41.9206322",
+            "longitudine": "12.4722862"
+        }, {
+            "id_node": "295394476",
+            "codice": "",
+            "name": "Belle Arti",
+            "ordine": 6,
+            "latitudine": "41.9184568",
+            "longitudine": "12.4730455"
+        }, {
+            "id_node": "295811051",
+            "codice": "",
+            "name": "Ministero Marina",
+            "ordine": 7,
+            "latitudine": "41.9155312",
+            "longitudine": "12.4742642"
+        }, {
+            "id_node": "837210120",
+            "codice": "",
+            "name": "Flaminio",
+            "ordine": 8,
+            "latitudine": "41.9123271",
+            "longitudine": "12.4756469"
+        }]
+    }]
+}
