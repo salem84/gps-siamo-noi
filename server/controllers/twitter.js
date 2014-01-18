@@ -1,5 +1,6 @@
 ﻿var Twit = require('twit');
 var config = require('../config');
+log = require('../logger');
 
 
 function getStringNewPostTemplate() {
@@ -46,6 +47,7 @@ function parseTweet(t) {
 function createTwitterWrapper(isAuthenticated, user) {
     //Se non sono loggato o sto inviando con l'account associato all'app
     if (isAuthenticated) {
+        log.info('AT: '+user.default_access_token + ' DAT: '+user.default_access_token_secret);
         var T = new Twit({
             consumer_key: config.twitter.consumer_key,
             consumer_secret: config.twitter.consumer_secret,
@@ -102,7 +104,7 @@ module.exports = {
             res.send(400);
         }
 
-        var T = createTwitterWrapper(true);
+        var T = createTwitterWrapper(false);
         T.get('statuses/user_timeline', { screen_name: screenName, count: pageSize, max_id: maxId }, function(err, reply) {
             var array = [];
             for (i in reply) {

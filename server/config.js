@@ -19,7 +19,7 @@ config.sendgrid.api_user = 'azure_b14271a11ccf7b2d3b45632111ec0371@azure.com';
 config.sendgrid.api_key = 'w6dfvh8y';
 
 config.logger = {};
-config.logger.name = process.env.LOGGER_NAME || 'console'; 
+config.logger.name = process.env.LOGGER_NAME || 'console2'; 
 config.logger.logentriesToken = 'bf5c544b-31cb-4d61-abf6-ddfd59a11241';
 
 module.exports = config;
