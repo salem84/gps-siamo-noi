@@ -6,19 +6,22 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		title= title
 
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
-		script
+		script.
 			window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')
 
 		script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js")
-		
-		
+		script.
+			if(typeof($.fn.modal) === 'undefined') { document.write('<script src="/local/bootstrap.min.js"><\/script>')}
+
+
 		script(src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-sanitize.min.js')
-		
+				
+
 		script(src='/lib/ui-bootstrap-tpls-0.9.0.min.js')
 		script(src='/lib/scrollability.min.js')
 		
@@ -41,11 +44,12 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		script(src='/scripts/controllers/c_auth.js')
 
 		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css')
-		script
+		script.
 			$(document).ready(function() {
 			var bodyColor = $('body').css('color');
-			if(true) {
-				}});
+			if(bodyColor != 'rgb(51, 51, 51)') {
+				$('head').prepend('<link rel="stylesheet" href="/local/bootstrap.min.css">'); 
+			}
 		link(rel='stylesheet', href='/stylesheets/style.css')
 
 
