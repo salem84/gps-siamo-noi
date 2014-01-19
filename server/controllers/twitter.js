@@ -182,15 +182,31 @@ module.exports = {
             msg = createStandardMessage(req);
         }
 
-
         //res.send(msg);
         T.post('statuses/update', { status: msg }, function(err, reply) {
             if (err)
                 res.send(500);
-            else
+            else {
+                //TODO 
+                var idTweet = reply.id_str;
+
+                //In caso lo sta inviando dal proprio profilo, devo fare un retweet
+                if(isAuthenticated)
+                {
+                    var Tr = createTwitterWrapper(false, null);
+                    Tr.post('statuses/retweet/'+id_str, function(err, reply) {
+                        if (err)
+                            res.send(500);
+                        else
+                            res.send(200);
+                    });
+                }
+
                 res.send(200);
+            }
         });
 
+        
 
     },
 

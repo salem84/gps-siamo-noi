@@ -5,11 +5,12 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
 		title= title
 
-		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css')
-		link(rel='stylesheet', href='/stylesheets/style.css')
-
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+		script
+			window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')
+
 		script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js")
+		
 		
 		script(src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js')
@@ -38,6 +39,14 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		script(src='/scripts/controllers/c_twitter_profili.js')
 		script(src='/scripts/controllers/c_twitter_tweets.js')
 		script(src='/scripts/controllers/c_auth.js')
+
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css')
+		script
+			$(document).ready(function() {
+			var bodyColor = $('body').css('color');
+			if(true) {
+				}});
+		link(rel='stylesheet', href='/stylesheets/style.css')
 
 
 	body(ng-app='gpsSiamoNoiApp')
