@@ -194,7 +194,7 @@ module.exports = {
                 if(isAuthenticated)
                 {
                     var Tr = createTwitterWrapper(false, null);
-                    Tr.post('statuses/retweet/'+id_str, function(err, reply) {
+                    Tr.post('statuses/retweet/'+idTweet, function(err, reply) {
                         if (err)
                             res.send(500);
                         else

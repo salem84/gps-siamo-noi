@@ -17,7 +17,7 @@
     <ScriptArguments />
     <NodejsPort>3000</NodejsPort>
     <StartWebBrowser>True</StartWebBrowser>
-    <LaunchUrl>http://192.168.13.252:3000</LaunchUrl>
+    <LaunchUrl>http://localhost:3000</LaunchUrl>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />

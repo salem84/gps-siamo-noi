@@ -1,7 +1,7 @@
 ﻿var config = {};
 
 config.site = {};
-config.site.url = process.env.URL || 'http://192.168.13.252:3000/';
+config.site.url = process.env.URL || 'http://localhost:3000/';
 
 config.twitter = {};
 config.twitter.consumer_key = '21sQGTwFubvAIrvfMeIZQ';
