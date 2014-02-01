@@ -1,13 +1,16 @@
-﻿var fs = require('fs');
+﻿var fs = require('fs'),
+    _ = require('underscore');
+
+
 
 module.exports = {
-    
-    elencoLinee: function(req, res) {
-        fs.readdir('linee/', function(err, files) {
+
+    elencoLinee: function (req, res) {
+        fs.readdir('linee/', function (err, files) {
             var linee = [];
 
             if (err) throw err;
-            files.forEach(function(file) {
+            files.forEach(function (file) {
                 if (file.indexOf('.json') != -1) {
 
                     var filename = file.replace('.json', '');
@@ -18,13 +21,13 @@ module.exports = {
             res.json(linee);
         });
     },
-    
 
-    dettagliLinea: function(req, res) {
+
+    dettagliLinea: function (req, res) {
 
         var lineaNum = req.params.id;
         var file = 'linee/' + lineaNum + '.json';
-        fs.readFile(file, function(e, data) {
+        fs.readFile(file, function (e, data) {
             if (e) {
                 res.send(404);
                 throw new Error("Linea non esistente: " + lineaNum);
@@ -35,6 +38,32 @@ module.exports = {
         });
 
 
+    },
+
+    verificaDatiLinea: function (linea, direzione, fermata) {
+        try {
+
+            var file = 'linee/' + linea + '.json';
+            var data = fs.readFileSync(file);
+
+            var txt = '' + data;
+            var json = JSON.parse(txt);
+            var d = _.findWhere(json.direzioni, { "name": direzione }) ;
+            
+            if(d == undefined)
+                return false;
+
+            var f = _.findWhere(d.fermate, { "name": fermata }) ;
+            
+            if(f == undefined)
+                return false;
+
+            return true;
+
+        }
+        catch (e) {
+            return false;
+        }
     }
 };
 
