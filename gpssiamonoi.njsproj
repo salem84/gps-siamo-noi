@@ -23,6 +23,12 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Content Include="BuildProcessTemplates\GitContinuousDeploymentTemplate.12.xaml" />
+    <Content Include="client\images\details-large-view-128.png" />
+    <Content Include="client\images\list-ingredients-128.png" />
+    <Content Include="client\images\message-outline-128.png" />
+    <Content Include="client\images\signal-horn-128.png" />
+    <Content Include="client\images\twitter-4-128.png" />
+    <Content Include="client\images\view-details-128.png" />
     <Content Include="client\views\404.html" />
     <Content Include="client\views\contattaci.html" />
     <Content Include="linee\14.json" />
