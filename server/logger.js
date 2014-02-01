@@ -6,7 +6,10 @@ if ('console' == config.logger.name) {
     log = {        
       info: function(msg) {
           console.log(msg);
-      }  
+      },
+      err: function(msg) {
+          console.log('Error: '+msg);
+      }
     };
 } 
 else {

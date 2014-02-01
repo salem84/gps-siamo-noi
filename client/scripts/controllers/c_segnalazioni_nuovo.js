@@ -17,13 +17,14 @@ app.controller('NuovaSegnalazioneCtrl', function($scope, $location, DatiInvioSeg
 
             $scope.currentStep++;
 
+            $scope.segnalazione.selectedDirezione = null;
+            $scope.segnalazione.selectedFermata = null;
 
             //carico i dettagli della linea
             Linee.get({ id: $scope.segnalazione.selectedLinea }, function(data) {
                 $scope.segnalazione.direzioni = data.direzioni;
             
-                $scope.segnalazione.selectedDirezione = null;
-                $scope.segnalazione.selectedFermata = null;
+                
             
             });
             $location.path('/segnalazioni/nuovo/fermata');

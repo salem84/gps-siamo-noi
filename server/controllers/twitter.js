@@ -48,7 +48,7 @@ function parseTweet(t) {
 function createTwitterWrapper(isAuthenticated, user) {
     //Se non sono loggato o sto inviando con l'account associato all'app
     if (isAuthenticated) {
-        log.info('AT: ' + user.default_access_token + ' DAT: ' + user.default_access_token_secret);
+        log.info('Creazione User Context - AT: ' + user.default_access_token + ' DAT: ' + user.default_access_token_secret);
         var T = new Twit({
             consumer_key: config.twitter.consumer_key,
             consumer_secret: config.twitter.consumer_secret,
@@ -99,6 +99,8 @@ module.exports = {
         var pageSize = 10;
         var screenName = req.params.screenName;
 
+        log.info('getTweets '+ screenName);
+
         var maxId;
         if (req.query.maxId) {
             maxId = req.query.maxId;
@@ -106,6 +108,7 @@ module.exports = {
 
         if (!isValidTwitter(screenName)) {
             res.send(400);
+            log.err('Richiesto account non valido');
         }
 
         var T = createTwitterWrapper(false);
@@ -124,6 +127,9 @@ module.exports = {
 
                 array.push(tweet);
             }
+
+            log.info('Invio tweets');
+
             res.json(array);
         });
     },
@@ -131,8 +137,11 @@ module.exports = {
     getProfile: function (req, res) {
         var screenName = req.params.screenName;
 
+        log.info('getProfile '+ screenName);
+
         if (!isValidTwitter(screenName)) {
             res.send(400);
+            log.err('Richiesto account non valido');
         }
 
         var T = createTwitterWrapper(true);
@@ -143,6 +152,8 @@ module.exports = {
 
     //Elenco profili twitter
     getAllProfiles: function (req, res) {
+        log.info('getAllProfiles request');
+
         //Leggo tutti i nomi
         var screenNames = getValidTwitterScreenNames();
         var screenNamesCommaSeparated = screenNames.join(",");
@@ -163,17 +174,22 @@ module.exports = {
                 };
                 array.push(profiles);
             }
+
+            log.info('Invio profili');
+
             res.json(array);
         });
     },
 
     //Invio segnalazione
     sendTweet: function (req, res) {
+        log.info('Tentativo invio tweet');
         var isAuthenticated;
 
         var resVerifica = lineeCtrl.verificaDatiLinea(req.body.selectedLinea, req.body.selectedDirezione, req.body.selectedFermata);
         if (resVerifica == false) {
             res.send(500);
+            log.err('Verifica fallita per ' + JSON.stringify(req.body));
             return;
         };
 
@@ -183,17 +199,19 @@ module.exports = {
         } else {
             isAuthenticated = false;
         }
+        
+        log.info('Contesto autenticato: '+isAuthenticated);
 
         var msg;
         var T = createTwitterWrapper(isAuthenticated, req.user);
         if (!isAuthenticated) {
-
             msg = createStandardMessage(req);
 
         } else {
             msg = req.body.messaggio;
         }
 
+        log.info('Invio messaggio ' + msg);
         //TODO se anche quello standard supera la lunghezza di 140 caratteri?
         if (msg.length > 140) {
             msg = createStandardMessage(req);
@@ -201,20 +219,29 @@ module.exports = {
 
         //res.send(msg);
         T.post('statuses/update', { status: msg }, function (err, reply) {
-            if (err)
+            if (err) {
                 res.send(500);
+                log.err('Impossibile inviare tweet: ' + err);
+            }
             else {
-                //TODO 
+                log.info('Tweet inviato');
+
                 var idTweet = reply.id_str;
 
                 //In caso lo sta inviando dal proprio profilo, devo fare un retweet
                 if (isAuthenticated) {
+                    log.info('Invio retweet');
+
                     var Tr = createTwitterWrapper(false, null);
                     Tr.post('statuses/retweet/' + idTweet, function (err, reply) {
-                        if (err)
+                        if (err) {
                             res.send(500);
-                        else
+                            log.err('Errore nel retweet ' + err);
+                        }
+                        else {
                             res.send(200);
+                            log.info('Retweet inviato correttamente');
+                        }
                     });
                 }
 
@@ -227,6 +254,8 @@ module.exports = {
     },
 
     getTemplateTweet: function (req, res) {
+        log.info('getTemplateTweet request');
+
         var result = {
             newPost: getStringNewPostTemplate()
         };

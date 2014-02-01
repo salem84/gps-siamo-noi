@@ -1,11 +1,14 @@
 ﻿var fs = require('fs'),
-    _ = require('underscore');
+    _ = require('underscore'),
+    log = require('../logger');
 
 
 
 module.exports = {
 
     elencoLinee: function (req, res) {
+        log.info('elencoLinee request');
+
         fs.readdir('linee/', function (err, files) {
             var linee = [];
 
@@ -26,6 +29,8 @@ module.exports = {
     dettagliLinea: function (req, res) {
 
         var lineaNum = req.params.id;
+        log.info('dettagliLinea: ' + lineaNum);
+
         var file = 'linee/' + lineaNum + '.json';
         fs.readFile(file, function (e, data) {
             if (e) {
@@ -42,26 +47,28 @@ module.exports = {
 
     verificaDatiLinea: function (linea, direzione, fermata) {
         try {
+            log.info('verificaDatiLinea: L' + linea + ' D: ' + direzione + ' F: '+fermata);
 
             var file = 'linee/' + linea + '.json';
             var data = fs.readFileSync(file);
 
             var txt = '' + data;
             var json = JSON.parse(txt);
-            var d = _.findWhere(json.direzioni, { "name": direzione }) ;
-            
-            if(d == undefined)
+            var d = _.findWhere(json.direzioni, { "name": direzione });
+
+            if (d == undefined)
                 return false;
 
-            var f = _.findWhere(d.fermate, { "name": fermata }) ;
-            
-            if(f == undefined)
+            var f = _.findWhere(d.fermate, { "name": fermata });
+
+            if (f == undefined)
                 return false;
 
             return true;
 
         }
         catch (e) {
+            log.err('Eccezione in verificaDatiLinea ' + e);
             return false;
         }
     }
