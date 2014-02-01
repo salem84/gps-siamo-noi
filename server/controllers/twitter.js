@@ -13,7 +13,7 @@ function parseTwitterDate(text) {
 }
 
 function getValidTwitterScreenNames() {
-    return ['infoatac', 'disinfoatac', 'romalido', 'voglioil19', 'movesharing'];
+    return ['infoatac', 'disinfoatac', 'romalido', 'voglioil19', 'movesharing', 'treninogiallo'];
 }
 
 function isValidTwitter(screenName) {
