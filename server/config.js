@@ -9,7 +9,7 @@ config.twitter.consumer_secret = 'QswEDhRYrwzWa3nLNfyqMZ0tg4kgPYK7Jvv16HlLemw';
 //-----salem84
 //config.twitter.default_access_token = '165020788-VZB63Y32MLwg2ujaWEuA35TNCtQMD8FuACGiLwir';
 //config.twitter.default_access_token_secret = 'TZwyYbzfk81xm1y1IsTMYFuQUAdsxvd2QL4iyBcLX96Ba';
-if(process.env.DEBUG == 0)
+if(process.env.PRODUZIONE == 1)
 {
     //-----movesharing
     config.twitter.default_access_token = '1470508477-J3TkybkI0GoslnQ0d9dQJ6coIjd4ExsDclMmhtj';
