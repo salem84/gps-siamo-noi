@@ -4,32 +4,32 @@
 
 <div id="secondo-step " class="container nuova-segnalazione-view">
 
-        <div class="form-group">
-            <label class="control-label" for="inputSuccess">Stai viaggiando sulla linea: #{{segnalazione.selectedLinea}}</label>
-            <div class="input-group input-group-lg">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    {{segnalazione.selectedDirezione.name || 'Direzione'}} <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li ng-repeat="d in segnalazione.direzioni"><a href="javascript:void(0)" ng-click="cmdSelezionaDirezione($index)">{{d.name}}</a></li>
-                </ul>
+    <div class="form-group">
+        <label class="control-label" for="inputSuccess">Stai viaggiando sulla linea: #{{segnalazione.selectedLinea}}</label>
+        <div class="input-group input-group-lg">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                {{segnalazione.selectedDirezione.name || 'Direzione'}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="d in segnalazione.direzioni"><a href="javascript:void(0)" ng-click="cmdSelezionaDirezione($index)">{{d.name}}</a></li>
+            </ul>
 
+        </div>
+    </div>
+
+
+    <div id="fermate-container" ng-class="{ ridotto: segnalazione.selectedFermata}">
+        <div id="fermate-inner">
+            <div class="fermata" ng-repeat="f in segnalazione.selectedDirezione.fermate | filter:{visibile: '!false'}">
+                <div class="check" ng-click="cmdSelezionaFermata($index)" ng-class="{ selected: $index == segnalazione.selectedFermata.index}"></div>
+                {{f.name}}
             </div>
         </div>
 
+    </div>
 
-        <div id="fermate-container">
-            <div id="fermate-inner">
-                <div class="fermata" ng-repeat="f in segnalazione.selectedDirezione.fermate | filter:{visibile: '!false'}">
-                    <div class="check" ng-click="cmdSelezionaFermata($index)" ng-class="{ selected: $index == segnalazione.selectedFermata.index}"></div>
-                    {{f.name}}
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-lg-4 col-xs-12 text-center">
-            <button type="button" class="btn btn-lg btn-primary" ng-show="segnalazione.selectedFermata" ng-click="cmdGoRiepilogo()">Avanti</button>
-        </div>
+    <div id="btn-conferma" class="col-lg-4 col-xs-12 text-center">
+        <button type="button" class="btn btn-lg btn-primary" ng-show="segnalazione.selectedFermata" ng-click="cmdGoRiepilogo()">Avanti</button>
+    </div>
 
 </div>

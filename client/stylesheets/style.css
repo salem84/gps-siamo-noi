@@ -136,12 +136,21 @@ a {
     position:absolute;
     top:220px;
     bottom:55px;
+}
 
+#fermate-container.ridotto {
+    bottom:130px;
 }
 
 #fermate-inner {
     height: 100%;
     overflow-y:auto
+}
+
+#btn-conferma
+{
+    position:absolute;
+    bottom:50px;
 }
 
 
