@@ -13,19 +13,21 @@ app.controller('NuovaSegnalazioneCtrl', function($scope, $location, DatiInvioSeg
     $scope.currentStep = 1;
 
     $scope.cmdGoStepDirezioni = function() {
-        $scope.currentStep++;
+        if(this.lineaValida){
+
+            $scope.currentStep++;
 
 
-        //carico i dettagli della linea
-        Linee.get({ id: $scope.segnalazione.selectedLinea }, function(data) {
-            $scope.segnalazione.direzioni = data.direzioni;
+            //carico i dettagli della linea
+            Linee.get({ id: $scope.segnalazione.selectedLinea }, function(data) {
+                $scope.segnalazione.direzioni = data.direzioni;
             
-            $scope.segnalazione.selectedDirezione = null;
-            $scope.segnalazione.selectedFermata = null;
+                $scope.segnalazione.selectedDirezione = null;
+                $scope.segnalazione.selectedFermata = null;
             
-        });
-        $location.path('/segnalazioni/nuovo/fermata');
-
+            });
+            $location.path('/segnalazioni/nuovo/fermata');
+        }
     };
 
     $scope.lineaValida = undefined;

@@ -2,21 +2,21 @@
 <banner class="banner-grey" testo="Sar&agrave; inviata direttamente sul profilo twitter di @movesharing"/>
 
     <div id="primo-step" class="container nuova-segnalazione-view">
+        <form ng-submit="cmdGoStepDirezioni()">
+            <div>
+                <div class="form-group">
+                    <label class="control-label" for="inputSuccess">Scrivi la linea su cui stai viaggiando</label>
+                    <div class="input-group input-group-lg" ng-class="{ 'has-success': lineaValida , 'has-error': !lineaValida}">
+                        <span class="input-group-addon">#</span>
+                        <!--<input type="text" class="form-control" placeholder="Numero" ng-model="segnalazione.selectedLinea">-->
+                        <input type="text" ng-model="segnalazione.selectedLinea" typeahead="linea.name for linea in linee | filter:$viewValue | limitTo:8" class="form-control">
+                    </div>
+                </div>
 
-        <div>
-            <div class="form-group">
-                <label class="control-label" for="inputSuccess">Scrivi la linea su cui stai viaggiando</label>
-                <div class="input-group input-group-lg" ng-class="{ 'has-success': lineaValida , 'has-error': !lineaValida}">
-                    <span class="input-group-addon">#</span>
-                    <!--<input type="text" class="form-control" placeholder="Numero" ng-model="segnalazione.selectedLinea">-->
-                    <input type="text" ng-model="segnalazione.selectedLinea" typeahead="linea.name for linea in linee | filter:$viewValue | limitTo:8" class="form-control">
+
+                <div class="col-lg-12 col-xs-12 text-center">
+                    <button type="button" class="btn btn-lg btn-primary" ng-show="segnalazione.selectedLinea" ng-click="cmdGoStepDirezioni()" ng-disabled="!lineaValida">Avanti</button>
                 </div>
             </div>
-
-
-            <div class="col-lg-12 col-xs-12 text-center">
-                <button type="button" class="btn btn-lg btn-primary" ng-show="segnalazione.selectedLinea" ng-click="cmdGoStepDirezioni()" ng-disabled="!lineaValida">Avanti</button>
-            </div>
-        </div>
-
+        </form>
 </div>
