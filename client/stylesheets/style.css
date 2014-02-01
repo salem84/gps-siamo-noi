@@ -125,43 +125,58 @@ a {
         background-color: green;
     }
 
+@media screen and (min-width: 600px) {
+    #btn-conferma {
+        position: absolute;
+        top: 130px;
+        text-align: right;
+        right: 130px;
+    }
+}
 
-#fermate-container {
-    /*height: 300px;*/
-    width: 95%;
-    background: #fff;
-    
-    /*    overflow: scroll;
+
+@media screen and (max-width: 599px) {
+
+    #fermate-container {
+        /*height: 300px;*/
+        width: 95%;
+        background: #fff;
+        /*    overflow: scroll;
     -webkit-overflow-scrolling: touch;*/
-    position:absolute;
-    top:220px;
-    bottom:55px;
+        position: absolute;
+        top: 220px;
+        bottom: 55px;
+    }
+
+        #fermate-container.ridotto {
+            bottom: 130px;
+        }
+
+    #fermate-inner {
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    #btn-conferma {
+        position: absolute;
+        bottom: 50px;
+        text-align:center
+    }
 }
 
-#fermate-container.ridotto {
-    bottom:130px;
-}
-
-#fermate-inner {
-    height: 100%;
-    overflow-y:auto
-}
-
-#btn-conferma
-{
-    position:absolute;
-    bottom:50px;
-}
 
 
-@media screen and (max-width: 600px) {
-    .nuova-segnalazione-view {
+.nuova-segnalazione-view {
         margin-top: 50px;
     }
 
     #terzo-step.nuova-segnalazione-view {
         margin-top: 20px;    
     }
+
+
+@media screen and (max-width: 600px) {
+    
 
     #terzo-step.nuova-segnalazione-view  textarea {
         max-width: 100%;
@@ -352,43 +367,45 @@ a {
                 height: auto;
             }
 
-    .button {
+    
+}
+
+.button {
         padding: 10px 0;
         width: 100%;
         margin: .2em auto;
         line-height: normal;
     }
-}
 
 /* FINE HOME */
 
-@media screen {
-    #loading-widget {
-        margin-top: 50px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100px;
-    }
+
+#loading-widget {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
 }
 
-@media screen and (max-width: 600px) {
 
-    .banner {
-        padding: 10px 25px ;
-        background: #048fc2;
-        color: #fff;
-        font-size: 1.8em
-    }
 
-    .banner-grey {
-        padding: 5px 10px ;
-        background: #f4f4f4;
-        color: #333;
-        font-size: 1em
-    }
+
+.banner {
+    padding: 10px 25px ;
+    background: #048fc2;
+    color: #fff;
+    font-size: 1.8em
+}
+
+.banner-grey {
+    padding: 5px 10px ;
+    background: #f4f4f4;
+    color: #333;
+    font-size: 1em
+}
 
     
-}
+
 
 
 @media screen and (max-height: 400px) {
