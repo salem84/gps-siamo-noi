@@ -6,7 +6,7 @@
     <div>
         <ul class="twitter-profili">
             <li ng-repeat="p in profili" class="twitter-profilo col-xs-5"
-                ng-style="{ 'background-color': $parent.bg_colors[$index] }"
+                ng-style="{ 'background': '-webkit-linear-gradient(top,' + $parent.bgs_colors[$index] +' 0, ' + $parent.bge_colors[$index] + ' 100%)' }"
                 ng-click="goTweetsPage(p.screenName)">
                 <div>
                     <img ng-src="{{p.image}}" />

@@ -12,7 +12,7 @@ function parseTwitterDate(text) {
 }
 
 function getValidTwitterScreenNames() {
-	return ['infoatac', 'disinfoatac', 'romalido', 'voglioil19'];
+	return ['infoatac', 'disinfoatac', 'romalido', 'voglioil19', 'movesharing'];
 }
 
 function isValidTwitter(screenName) {
@@ -137,14 +137,18 @@ module.exports = {
         });
     },
 
+    //Elenco profili twitter
     getAllProfiles: function(req, res) {
+        //Leggo tutti i nomi
         var screenNames = getValidTwitterScreenNames();
         var screenNamesCommaSeparated = screenNames.join(",");
-        var T = createTwitterWrapper(true);
-        T.get('users/lookup', { screen_name: screenNamesCommaSeparated }, function(err, reply) {
+        //Utilizzo l'account di default
+        var T = createTwitterWrapper(false);
+        //Mi scarico tutte le info
+        T.get('users/lookup', { screen_name: screenNamesCommaSeparated }, function(err, replies) {
             var array = [];
-            for (i in reply) {
-                var r = reply[i];
+            for (i in replies) {
+                var r = replies[i];
                 var profiles = {
                     id: r.id,
                     name: r.name,
@@ -159,6 +163,7 @@ module.exports = {
         });
     },
 
+    //Invio segnalazione
     sendTweet: function(req, res) {
         var isAuthenticated;
         if (req.body.isAuthenticated && req.user) {

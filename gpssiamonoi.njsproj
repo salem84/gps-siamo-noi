@@ -67,7 +67,7 @@
     <Content Include="client\views\auth\twitterUser.html" />
     <Content Include="client\views\home.html" />
     <Content Include="client\views\new.html" />
-    <Content Include="client\views\segnala.html" />
+    <Content Include="client\views\__segnala.html" />
     <Content Include="client\views\segnalazioni\nuovo\2_scegli_fermata.html" />
     <Content Include="client\views\segnalazioni\nuovo\1_scegli_linea.html" />
     <Content Include="client\views\segnalazioni\nuovo\3_riepilogo.html" />
