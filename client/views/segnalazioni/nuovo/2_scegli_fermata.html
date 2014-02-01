@@ -19,7 +19,7 @@
 
 
         <div id="fermate-container">
-            <div class="scrollable vertical">
+            <div id="fermate-inner">
                 <div class="fermata" ng-repeat="f in segnalazione.selectedDirezione.fermate | filter:{visibile: '!false'}">
                     <div class="check" ng-click="cmdSelezionaFermata($index)" ng-class="{ selected: $index == segnalazione.selectedFermata.index}"></div>
                     {{f.name}}

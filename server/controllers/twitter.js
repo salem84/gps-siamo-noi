@@ -4,7 +4,7 @@ log = require('../logger');
 
 
 function getStringNewPostTemplate() {
-    return '#test $DIREZIONE$ - $FERMATA$ alle $ORA$';
+    return '#ilgpssiamonoi $DIREZIONE$ - $FERMATA$ alle $ORA$';
 }
 
 function parseTwitterDate(text) {

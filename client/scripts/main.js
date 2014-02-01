@@ -24,7 +24,7 @@ app.config(function($routeProvider, $locationProvider) {
         //}).
         when('/segnalazioni', {
             redirectTo: function() {
-                return '/twitter/profili/voglioil19';
+                return '/twitter/profili/movesharing';
             }
         }).
         when('/contattaci', {

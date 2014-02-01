@@ -105,7 +105,7 @@ var routes = [
                 'displayName': displayName,
                 'role': ''
             }));
-            res.render('index', { title: 'Gps siamo noi' });
+            res.render('index', { title: 'Il Gps siamo noi' });
         }]
     }
 ];
