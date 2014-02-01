@@ -4,7 +4,7 @@ log = require('../logger');
 
 
 function getStringNewPostTemplate() {
-    return '#ilgpssiamonoi $DIREZIONE$ - $FERMATA$ alle $ORA$';
+    return config.twitter.hashTag + ' $DIREZIONE$ - $FERMATA$ alle $ORA$';
 }
 
 function parseTwitterDate(text) {
@@ -79,8 +79,8 @@ function createStandardMessage(req) {
         msg = msg.replace("$FERMATA$", req.body.selectedFermata);
     }
 
-    var ora = (new Date()).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
-    msg = msg.replace("$ORA$", ora);
+    var moment = require('moment');
+    msg = msg.replace("$ORA$", moment().format('HH:mm'));
 
     return msg;
 }
