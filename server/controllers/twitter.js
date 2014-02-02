@@ -1,4 +1,5 @@
 ﻿var Twit = require('twit'),
+    moment = require('moment-timezone'),
     config = require('../config'),
     log = require('../logger'),
     lineeCtrl = require('./linee.js');
@@ -82,8 +83,8 @@ function createStandardMessage(req) {
         msg = msg.replace("$FERMATA$", req.body.selectedFermata);
     }
 
-    var moment = require('moment');
-    msg = msg.replace("$ORA$", moment().formatInZone('HH:mm', 1));
+    var ora = moment().tz('Europe/Rome').format('HH:mm');
+    msg = msg.replace("$ORA$", ora);
 
     return msg;
 

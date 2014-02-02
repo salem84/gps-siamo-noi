@@ -15,6 +15,7 @@
     "passport-twitter": "~1.0.2",
     "node-logentries": "~0.1.2",
     "sendgrid": "~1.0.0-rc.1.0",
-    "moment": "~2.5.1"
+    "moment": "~2.5.1",
+    "moment-timezone": "0.0.3"
   }
 }
