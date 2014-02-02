@@ -83,7 +83,7 @@ function createStandardMessage(req) {
     }
 
     var moment = require('moment');
-    msg = msg.replace("$ORA$", moment().format('HH:mm'));
+    msg = msg.replace("$ORA$", moment().formatInZone('HH:mm', 1));
 
     return msg;
 
