@@ -21,7 +21,7 @@
     <div id="fermate-container" ng-class="{ ridotto: segnalazione.selectedFermata}">
         <div id="fermate-inner">
             <div class="fermata" ng-repeat="f in segnalazione.selectedDirezione.fermate | filter:{visibile: '!false'}">
-                <div class="check" ng-click="cmdSelezionaFermata($index)" ng-class="{ selected: $index == segnalazione.selectedFermata.index}"></div>
+                <div class="check" ng-click="cmdSelezionaFermata(f, $index)" ng-class="{ selected: $index == segnalazione.selectedFermata.index}"></div>
                 {{f.name}}
             </div>
         </div>

@@ -60,8 +60,9 @@ app.controller('NuovaSegnalazione_FermataCtrl', function($scope, $location, Line
 
     };
 
-    $scope.cmdSelezionaFermata = function(index) {
-        $scope.segnalazione.selectedFermata = $scope.segnalazione.selectedDirezione.fermate[index];
+    $scope.cmdSelezionaFermata = function(fermata, index) {
+        //$scope.segnalazione.selectedFermata = $scope.segnalazione.selectedDirezione.fermate[index];
+        $scope.segnalazione.selectedFermata = fermata;
         $scope.segnalazione.selectedFermata.index = index;
     };
 
