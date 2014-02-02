@@ -137,6 +137,10 @@ a {
         text-align: right;
         right: 130px;
     }
+
+    #fermate-container {
+        padding-bottom:100px;
+    }
 }
 
 
@@ -166,6 +170,7 @@ a {
         position: absolute;
         bottom: 50px;
         text-align: center;
+        width:95%;
     }
 }
 
