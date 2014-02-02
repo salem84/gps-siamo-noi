@@ -14,7 +14,7 @@ function parseTwitterDate(text) {
 }
 
 function getValidTwitterScreenNames() {
-    return ['infoatac', 'iltrenoromalido', 'treninogiallo', 'disinfoatac', 'romalido', 'voglioil19'];
+    return ['infoatac', 'iltrenoromalido', 'treninogiallo', 'disinfoatac', 'romalido', 'voglioil19', 'movesharing'];
 }
 
 function isValidTwitter(screenName) {

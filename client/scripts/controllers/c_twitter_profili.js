@@ -5,14 +5,11 @@ app.controller('ProfiliTwitterCtrl', function($scope, $location, Twitter) {
 
     $scope.profili = Twitter.lookup();
 
-    $scope.bgs_colors = ['#c36', '#9c3', '#048fc2', '#ffb600', '#a9a9a9', '#7FFFD4'];
-    $scope.bge_colors = ['#9d1f60', '#693 ', '#069', '#d89700', '#666', '#497F6D'];
-    $scope.fg_colors = ['white', 'white', 'white', 'white', 'white', 'white'];
+    $scope.bgs_colors = ['#c36', '#9c3', '#048fc2', '#ffb600', '#a9a9a9', '#7FFFD4', '#FF6464'];
+    $scope.bge_colors = ['#9d1f60', '#693 ', '#069', '#d89700', '#666', '#497F6D','#DC143C'];
+    $scope.fg_colors = ['white', 'white', 'white', 'white', 'white', 'white', 'white'];
 
     
-  $scope.wh = '#fff';
-  $scope.bl = '#000';
-
     $scope.goTweetsPage = function(screenName) {
         var url = '/twitter/profili/' + screenName;
         $location.path(url);
