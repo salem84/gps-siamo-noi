@@ -32,6 +32,16 @@ config.sendgrid.api_key = 'w6dfvh8y';
 
 config.db = {};
 config.db.host = process.env.DB_HOST || 'localhost';
+config.db.port = process.env.DB_PORT || 27017;
+config.db.user = process.env.DB_USER;
+config.db.password = process.env.DB_PASSWORD;
+
+//DB Produzione
+//config.db.host = 'ds030827.mongolab.com';
+//config.db.port =30827;
+//config.db.user = 'gpsuser';
+//config.db.password = 'ilgpssiamonoi!';
+
 config.db.database = 'ilgpssiamonoi';
 
 config.logger = {};
@@ -39,5 +49,10 @@ config.logger.name = process.env.LOGGER_NAME || 'console';
 config.logger.logentriesToken = 'bf5c544b-31cb-4d61-abf6-ddfd59a11241';
 
 config.cookie_secret = process.env.COOKIE_SECRET || 'gpssiamonoi_coookie_secret';
+
+config.roles = {};
+config.roles.USER = 1;
+config.roles.ADMIN = 2;
+
 
 module.exports = config;

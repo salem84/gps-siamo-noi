@@ -6,14 +6,18 @@
     mongoose = require('mongoose'), //TODO da spostare nella classe database
     config = require('../config.js');
 
+
+
 module.exports = {
     findOrCreateOauthUser: function (token, tokenSecret, profile, done) {
-        
+        //Verifico se già esiste l'utente su DB
         User.findOne({ oauthID: profile.id }, function (err, user) {
             if (err) { log.err(err); }
             if (!err && user != null) {
+                //L'ho trovato, non faccio nulla
                 done(null, user);
             } else {
+                //E' la prima volta, allora creo il record su DB
                 var user = new User({
                     provider: profile.provider,
                     oauthID: profile.id,
@@ -21,6 +25,7 @@ module.exports = {
                     displayName: profile.displayName,
                     token: token,
                     tokenSecret: tokenSecret,
+                    role: config.roles.USER,
                     created: Date.now()
                 });
                 user.save(function (err) {
@@ -38,21 +43,24 @@ module.exports = {
     },
 
     findById: function (id, done) {
+        //La chiave del record è un ObjectId
         var oId = new mongoose.Types.ObjectId(id);
-        //return _.clone(_.find(users, function (user) { return user.id === id }));
+        //Mi trovo il record su db
         User.findOne({ _id: oId }, function (err, dbUser) {
             if (err) { log.err(err); }
             if (!err && dbUser != null) {
-                 var user = new User({
+                //Quando lo trovo mi creo l'oggetto da tenere in memoria 
+                var user = new User({
                     provider: dbUser.provider,
                     oauthID: dbUser.oauthID,
                     username: dbUser.username,
                     displayName: dbUser.displayName,
                     token: dbUser.token,
                     tokenSecret: dbUser.tokenSecret,
+                    role: dbUser.role,
                     created: dbUser.created
                 });
-
+                //Comunico il completamento
                 done(null, user);
             }
             else {
@@ -61,9 +69,6 @@ module.exports = {
             }
         })
     },
-    //findByProviderId: function (provider, id) {
-    //    return _.find(users, function (user) { return user[provider] === id; });
-    //},
 
     twitterStrategy: function () {
         if (!config.twitter.consumer_key) throw new Error('Verificare Twitter Consumer Key');
@@ -76,19 +81,15 @@ module.exports = {
         },
             function (token, tokenSecret, profile, done) {
                 var user = module.exports.findOrCreateOauthUser(token, tokenSecret, profile, done);
-
-                //done(null, user);
             });
     },
     serializeUser: function (user, done) {
+        //Serializzo in sessione l'id dell'utente per recuperarlo successivamente
         done(null, user.id);
     },
 
     deserializeUser: function (id, done) {
-        /*var user = module.exports.findById(id);
-
-        if (user) { done(null, user); }
-        else { done(null, false); }*/
+        //Ho l'id in sessione e lo cerco su DB
         module.exports.findById(id, done);
     }
 };
