@@ -91,7 +91,6 @@ var routes = [
         skipApi: true,
         httpMethod: 'GET',
         middleware: [function(req, res) {
-            req.session.chiave = "valore";
             //var role = userRoles.public, username = '';
             var username = '';
             var displayName = '';
