@@ -8,9 +8,11 @@ var express = require('express'),
     path = require('path'),
     fs = require('fs'),
     passport = require('passport'),
+    MongoStore  = require('connect-mongo')(express),
     routes = require('./server/routes'),
-    User = require('./server/models/User'),
-    log = require('./server/logger');
+    auth = require('./server/utils/authentication')
+    log = require('./server/logger'),
+    config = require('./server/config.js');
 
 var app = express();
 
@@ -30,10 +32,20 @@ app.use(express.cookieParser());
 //app.use(express.session({
 //     secret: process.env.COOKIE_SECRET || 'gpssiamonoi_coookie_secret'
 //}));
-app.use(express.cookieSession(
-    {
-        secret: process.env.COOKIE_SECRET || 'gpssiamonoi_coookie_secret'
-    }));
+// app.use(express.cookieSession(
+//     {
+//         secret: process.env.COOKIE_SECRET || 'gpssiamonoi_coookie_secret'
+//     }));
+
+app.use(express.session({
+  secret  : config.cookie_secret,
+  cookie  : {
+    maxAge  : 7 * 24 * 60 * 60 * 1000              // expire the session(-cookie) after # seconds
+  },
+  store   : new MongoStore({
+    db: config.db.database
+  })
+}));
 
 //altrimenti non carica i file statici
 //app.use(app.router);
@@ -45,11 +57,13 @@ if ('development' == app.get('env')) {
 }
 
 
+
+
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(User.twitterStrategy());
-passport.serializeUser(User.serializeUser);
-passport.deserializeUser(User.deserializeUser);
+passport.use(auth.twitterStrategy());
+passport.serializeUser(auth.serializeUser);
+passport.deserializeUser(auth.deserializeUser);
 
 require('./server/routes.js')(app);
 

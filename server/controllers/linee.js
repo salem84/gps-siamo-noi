@@ -47,7 +47,7 @@ module.exports = {
 
     verificaDatiLinea: function (linea, direzione, fermata) {
         try {
-            log.info('verificaDatiLinea: L' + linea + ' D: ' + direzione + ' F: '+fermata);
+            log.info('verificaDatiLinea: L:' + linea + ' D: ' + direzione + ' F: '+fermata);
 
             var file = 'linee/' + linea + '.json';
             var data = fs.readFileSync(file);
