@@ -43,7 +43,10 @@ app.use(express.session({
     maxAge  : 7 * 24 * 60 * 60 * 1000              // expire the session(-cookie) after # seconds
   },
   store   : new MongoStore({
-    db: config.db.database
+    db: config.db.database,
+    port: config.db.port,
+    username: config.db.user,
+    password: config.db.password
   })
 }));
 
@@ -55,8 +58,6 @@ app.use(express.static(path.join(__dirname, 'client')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
-
 
 
 app.use(passport.initialize());
