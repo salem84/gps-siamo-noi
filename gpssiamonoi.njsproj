@@ -22,6 +22,7 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <None Include="Scripts\_references.js" />
     <Compile Include="server\utils\database.js" />
     <Content Include="BuildProcessTemplates\GitContinuousDeploymentTemplate.12.xaml" />
     <Content Include="client\images\bus.jpg" />
@@ -106,6 +107,7 @@
     <Folder Include="client\scripts\filters\" />
     <Folder Include="client\scripts\services\" />
     <Folder Include="client\stylesheets\" />
+    <Folder Include="Scripts\" />
     <Folder Include="server\" />
     <Folder Include="server\controllers\" />
     <Folder Include="server\models\" />
