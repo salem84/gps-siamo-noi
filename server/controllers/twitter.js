@@ -14,7 +14,7 @@ function parseTwitterDate(text) {
 }
 
 function getValidTwitterScreenNames() {
-    return ['infoatac', 'iltrenoromalido', 'treninogiallo', 'disinfoatac', 'romalido', 'voglioil19', 'movesharing'];
+    return ['infoatac', 'iltrenoromalido', 'treninogiallo', 'disinfoatac', 'romalido', 'voglioil19', 'movesharing', 'pendolarirmnord'];
 }
 
 function isValidTwitter(screenName) {
@@ -53,8 +53,8 @@ function createTwitterWrapper(isAuthenticated, user) {
         var T = new Twit({
             consumer_key: config.twitter.consumer_key,
             consumer_secret: config.twitter.consumer_secret,
-            access_token: user.default_access_token,
-            access_token_secret: user.default_access_token_secret
+            access_token: user.token,
+            access_token_secret: user.tokenSecret
         });
 
         return T;
@@ -100,7 +100,7 @@ module.exports = {
         var pageSize = 10;
         var screenName = req.params.screenName;
 
-        log.info('getTweets '+ screenName);
+        log.info('getTweets ' + screenName);
 
         var maxId;
         if (req.query.maxId) {
@@ -138,7 +138,7 @@ module.exports = {
     getProfile: function (req, res) {
         var screenName = req.params.screenName;
 
-        log.info('getProfile '+ screenName);
+        log.info('getProfile ' + screenName);
 
         if (!isValidTwitter(screenName)) {
             res.send(400);
@@ -200,51 +200,71 @@ module.exports = {
         } else {
             isAuthenticated = false;
         }
-        
-        log.info('Contesto autenticato: '+isAuthenticated);
+
+        log.info('Contesto autenticato: ' + isAuthenticated);
 
         var msg;
+        var stdMsg = createStandardMessage(req);
         var T = createTwitterWrapper(isAuthenticated, req.user);
         if (!isAuthenticated) {
-            msg = createStandardMessage(req);
+            msg = stdMsg;
 
         } else {
             msg = req.body.messaggio;
         }
 
         log.info('Invio messaggio ' + msg);
+
         //TODO se anche quello standard supera la lunghezza di 140 caratteri?
         if (msg.length > 140) {
-            msg = createStandardMessage(req);
+            msg = stdMsg;
         }
 
-        //res.send(msg);
+        //Invio il messaggio
         T.post('statuses/update', { status: msg }, function (err, reply) {
             if (err) {
                 res.send(500);
                 log.err('Impossibile inviare tweet: ' + err);
             }
             else {
-                log.info('Tweet inviato');
+                log.info('Tweet principale inviato');
 
-                var idTweet = reply.id_str;
-
-                //In caso lo sta inviando dal proprio profilo, devo fare un retweet
+                //Sono loggato, ho mandato il tweet sul profilo personale e devo inviare su movesharing
                 if (isAuthenticated) {
-                    log.info('Invio retweet');
 
                     var Tr = createTwitterWrapper(false, null);
-                    Tr.post('statuses/retweet/' + idTweet, function (err, reply) {
-                        if (err) {
-                            res.send(500);
-                            log.err('Errore nel retweet ' + err);
-                        }
-                        else {
-                            res.send(200);
-                            log.info('Retweet inviato correttamente');
-                        }
-                    });
+
+                    //E' un amministratore, allora posso fare il retweet
+                    if (req.user.role == config.roles.ADMIN) {
+                        var idTweet = reply.id_str;
+                        log.info('Invio retweet');
+
+                        Tr.post('statuses/retweet/' + idTweet, function (err, reply) {
+                            if (err) {
+                                res.send(500);
+                                log.err('Errore nel retweet ' + err);
+                            }
+                            else {
+                                res.send(200);
+                                log.info('Retweet inviato correttamente');
+                            }
+                        });
+                    }
+                    else {
+                        
+                        //E' un utente normale, su movesharing metto il messaggio standard
+                        Tr.post('statuses/update', { status: stdMsg }, function (err, reply) {
+                            if (err) {
+                                res.send(500);
+                                log.err('Impossibile inviare tweet su movesharing: ' + err);
+                            }
+                            log.info('Tweet secondario inviato');
+                        });
+                    }
                 }
+
+
+
 
                 res.send(200);
             }

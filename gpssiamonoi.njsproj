@@ -22,7 +22,11 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <None Include="Scripts\_references.js" />
+    <Compile Include="server\utils\database.js" />
     <Content Include="BuildProcessTemplates\GitContinuousDeploymentTemplate.12.xaml" />
+    <Content Include="client\images\bus.jpg" />
+    <Content Include="client\images\bus_small.jpg" />
     <Content Include="client\images\details-large-view-128.png" />
     <Content Include="client\images\list-ingredients-128.png" />
     <Content Include="client\images\message-outline-128.png" />
@@ -36,6 +40,7 @@
     <Content Include="linee\2.json" />
     <Content Include="linee\5.json" />
     <Content Include="linee\8.json" />
+    <Content Include="linee\n4.json" />
     <Content Include="linee\roma-giardinetti.json" />
     <Content Include="linee\roma-lido.json" />
     <Content Include="linee\roma-viterbo.bak" />
@@ -60,7 +65,7 @@
     <Compile Include="client\scripts\controllers\c_nav.js" />
     <Compile Include="server\controllers\assistenza.js" />
     <Compile Include="server\logger.js" />
-    <Compile Include="server\models\User.js" />
+    <Compile Include="server\utils\authentication.js" />
     <Compile Include="server\routes.js" />
     <Compile Include="server\controllers\linee.js" />
     <Compile Include="server\controllers\twitter.js" />
@@ -102,6 +107,7 @@
     <Folder Include="client\scripts\filters\" />
     <Folder Include="client\scripts\services\" />
     <Folder Include="client\stylesheets\" />
+    <Folder Include="Scripts\" />
     <Folder Include="server\" />
     <Folder Include="server\controllers\" />
     <Folder Include="server\models\" />
