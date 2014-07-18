@@ -120,7 +120,7 @@
             "ordine": 16,
             "latitudine": "41.9148689",
             "longitudine": "12.5042292",
-			"visibile": false
+			"visibile": true
         }, {
             "id_node": "1675888756",
             "codice": "",
@@ -601,7 +601,7 @@
             "ordine": 30,
             "latitudine": "41.9144732",
             "longitudine": "12.5047203",
-			"visibile": false
+			"visibile": true
         }, {
             "id_node": "1675888326",
             "codice": "",
