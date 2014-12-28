@@ -1,5 +1,4 @@
 ﻿var config = require('./config'),
-    logentries = require('node-logentries'),
     log;
 
 if ('console' == config.logger.name) {
@@ -13,9 +12,7 @@ if ('console' == config.logger.name) {
     };
 } 
 else {
-    log = logentries.logger({
-        token: config.logger.logentriesToken
-    });
+    
 }
 
 module.exports = log;

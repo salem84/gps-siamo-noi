@@ -42,13 +42,13 @@ app.use(express.session({
   cookie  : {
     maxAge  : 7 * 24 * 60 * 60 * 1000              // expire the session(-cookie) after # seconds
   },
-  //store   : new MongoStore({
-  //  host: config.db.host,
-  //  db: config.db.database,
-  //  port: config.db.port,
-  //  username: config.db.user,
-  //  password: config.db.password
-  //})
+  store   : new MongoStore({
+    host: config.db.host,
+    db: config.db.database,
+    port: config.db.port,
+    username: config.db.user,
+    password: config.db.password
+  })
 }));
 
 //altrimenti non carica i file statici

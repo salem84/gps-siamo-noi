@@ -46,7 +46,6 @@ config.db.database = 'ilgpssiamonoi';
 
 config.logger = {};
 config.logger.name = process.env.LOGGER_NAME || 'console'; 
-config.logger.logentriesToken = 'bf5c544b-31cb-4d61-abf6-ddfd59a11241';
 
 config.cookie_secret = process.env.COOKIE_SECRET || 'gpssiamonoi_coookie_secret';
 
