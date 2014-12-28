@@ -31,6 +31,7 @@ DB_PORT=27017</Environment>
     <Compile Include="server\controllers\segnalazioni.js" />
     <Compile Include="server\utils\database.js" />
     <Content Include="BuildProcessTemplates\GitContinuousDeploymentTemplate.12.xaml" />
+    <Content Include="client\favicon.png" />
     <Content Include="client\images\bus.jpg" />
     <Content Include="client\images\bus_small.jpg" />
     <Content Include="client\images\details-large-view-128.png" />
