@@ -39,17 +39,21 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: '/views/tweets.html',
             controller: 'TweetsProfiloCtrl'
         }).
-        when('/segnalazioni/nuovo', {
-            templateUrl: '/views/segnalazioni/nuovo/1_scegli_linea.html',
-            controller: 'NuovaSegnalazioneCtrl'
+        when('/segnalazioni/posizione', {
+            templateUrl: '/views/segnalazioni/posizione/1_scegli_linea.html',
+            controller: 'SegnalazionePosizioneCtrl'
         }).
-        when('/segnalazioni/nuovo/fermata', {
-            templateUrl: '/views/segnalazioni/nuovo/2_scegli_fermata.html',
-            controller: 'NuovaSegnalazione_FermataCtrl'
+        when('/segnalazioni/posizione/fermata', {
+            templateUrl: '/views/segnalazioni/posizione/2_scegli_fermata.html',
+            controller: 'SegnalazionePosizione_FermataCtrl'
         }).
-        when('/segnalazioni/nuovo/riepilogo', {
-            templateUrl: '/views/segnalazioni/nuovo/3_riepilogo.html',
-            controller: 'NuovaSegnalazione_RiepilogoCtrl'
+        when('/segnalazioni/posizione/riepilogo', {
+            templateUrl: '/views/segnalazioni/posizione/3_riepilogo.html',
+            controller: 'SegnalazionePosizione_RiepilogoCtrl'
+        }).
+        when('/segnalazioni/problema', {
+            templateUrl: '/views/segnalazioni/problema/invia.html',
+            controller: 'SegnalazioneProblemaCtrl'
         }).
         when('/auth/twitter', {
             templateUrl: '/views/auth/twitterAuth.html',

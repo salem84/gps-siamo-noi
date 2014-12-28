@@ -2,12 +2,12 @@
 var sendgrid  = require('sendgrid')(config.sendgrid.api_user, config.sendgrid.api_key);
 
 module.exports = {
-    inviaSegnalazione: function(req, res) {
+    richiediAssistenza: function(req, res) {
         var motivo = req.body.motivo,
             descrizione = req.body.descrizione,
             email = req.body.email;
 
-        var subject = 'Segnalazione inviata da gpssiamonoi.it';
+        var subject = 'Richiest Assistenza da ilgpssiamonoi.com';
         var testo = 'Inviata da ' + email + '\n';
         testo += 'Motivo: ' + motivo + '\n';
         testo += 'Descrizione: ' + descrizione + '\n';

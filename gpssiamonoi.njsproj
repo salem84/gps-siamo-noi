@@ -18,11 +18,17 @@
     <NodejsPort>3000</NodejsPort>
     <StartWebBrowser>True</StartWebBrowser>
     <LaunchUrl>http://localhost:3000</LaunchUrl>
+    <Environment>DB_HOST=ilgpssiamonoi.cloudapp.net
+DB_USER=gpsuser
+DB_PASSWORD=ilgpssiamonoi!
+DB_PORT=27017</Environment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <None Include="Scripts\_references.js" />
+    <Compile Include="client\scripts\controllers\c_segnalazioni_problema.js" />
+    <Compile Include="server\controllers\segnalazioni.js" />
     <Compile Include="server\utils\database.js" />
     <Content Include="BuildProcessTemplates\GitContinuousDeploymentTemplate.12.xaml" />
     <Content Include="client\images\bus.jpg" />
@@ -35,6 +41,7 @@
     <Content Include="client\images\view-details-128.png" />
     <Content Include="client\views\404.html" />
     <Content Include="client\views\contattaci.html" />
+    <Content Include="client\views\segnalazioni\problema\invia.html" />
     <Content Include="linee\14.json" />
     <Content Include="linee\19.json" />
     <Content Include="linee\2.json" />
@@ -56,7 +63,7 @@
     <Compile Include="client\scripts\controllers\c_home.js" />
     <Compile Include="client\scripts\controllers\c_twitter_tweets.js" />
     <Compile Include="client\scripts\controllers\c_twitter_profili.js" />
-    <Compile Include="client\scripts\controllers\c_segnalazioni_nuovo.js" />
+    <Compile Include="client\scripts\controllers\c_segnalazioni_posizione.js" />
     <Compile Include="client\scripts\directives\html.js" />
     <Compile Include="client\scripts\services\s_segnalazioni.js" />
     <Compile Include="client\scripts\services\s_auth.js" />
@@ -79,9 +86,9 @@
     <Content Include="client\views\home.html" />
     <Content Include="client\views\new.html" />
     <Content Include="client\views\__segnala.html" />
-    <Content Include="client\views\segnalazioni\nuovo\2_scegli_fermata.html" />
-    <Content Include="client\views\segnalazioni\nuovo\1_scegli_linea.html" />
-    <Content Include="client\views\segnalazioni\nuovo\3_riepilogo.html" />
+    <Content Include="client\views\segnalazioni\posizione\2_scegli_fermata.html" />
+    <Content Include="client\views\segnalazioni\posizione\1_scegli_linea.html" />
+    <Content Include="client\views\segnalazioni\posizione\3_riepilogo.html" />
     <Content Include="server\views\index.jade" />
     <Compile Include="client\scripts\main.js" />
     <Compile Include="client\scripts\controllers\c_segnalazioni_lista.js" />
@@ -97,12 +104,13 @@
     <Folder Include="client\" />
     <Folder Include="client\templates\" />
     <Folder Include="client\scripts\" />
+    <Folder Include="client\views\segnalazioni\problema\" />
     <Folder Include="linee\" />
     <Folder Include="client\scripts\directives\" />
     <Folder Include="client\views\" />
     <Folder Include="client\views\auth\" />
     <Folder Include="client\views\segnalazioni\" />
-    <Folder Include="client\views\segnalazioni\nuovo\" />
+    <Folder Include="client\views\segnalazioni\posizione\" />
     <Folder Include="client\scripts\controllers\" />
     <Folder Include="client\scripts\filters\" />
     <Folder Include="client\scripts\services\" />

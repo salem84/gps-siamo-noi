@@ -3,7 +3,9 @@
     AuthCtrl = require('./controllers/auth.js'),
     LineeCtrl = require('./controllers/linee.js'),
     TwitterCtrl = require('./controllers/twitter.js'),
-    AssistenzaCtrl = require('./controllers/assistenza.js');
+    AssistenzaCtrl = require('./controllers/assistenza.js'),
+    SegnalazioniCtrl = require('./controllers/segnalazioni.js');
+
 
 var routes = [
     {
@@ -82,7 +84,12 @@ var routes = [
     {
         path: '/assistenza',
         httpMethod: 'POST',
-        middleware: [AssistenzaCtrl.inviaSegnalazione]
+        middleware: [AssistenzaCtrl.richiediAssistenza]
+    },
+    {
+        path: '/segnalazioni',
+        httpMethod: 'POST',
+        middleware: [SegnalazioniCtrl.inviaSegnalazione]
     },
     
     // Tutte le altre richieste saranno gestite da AngularJS client-side routing

@@ -10,7 +10,7 @@ var express = require('express'),
     passport = require('passport'),
     MongoStore  = require('connect-mongo')(express),
     routes = require('./server/routes'),
-    auth = require('./server/utils/authentication')
+    auth = require('./server/utils/authentication'),
     log = require('./server/logger'),
     config = require('./server/config.js');
 
@@ -42,13 +42,13 @@ app.use(express.session({
   cookie  : {
     maxAge  : 7 * 24 * 60 * 60 * 1000              // expire the session(-cookie) after # seconds
   },
-  store   : new MongoStore({
-    host: config.db.host,
-    db: config.db.database,
-    port: config.db.port,
-    username: config.db.user,
-    password: config.db.password
-  })
+  //store   : new MongoStore({
+  //  host: config.db.host,
+  //  db: config.db.database,
+  //  port: config.db.port,
+  //  username: config.db.user,
+  //  password: config.db.password
+  //})
 }));
 
 //altrimenti non carica i file statici
@@ -73,6 +73,7 @@ require('./server/routes.js')(app);
 http.createServer(app).listen(app.get('port'), function(){
   log.info('Express server listening on port ' + app.get('port'));
 });
+
 
 
 

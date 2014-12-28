@@ -13,7 +13,7 @@ app.controller('ContattaciCtrl', function($scope, Assistenza) {
     };
 
     $scope.isValid = function() {
-        return selectedMotivoSegnalazione && descrizione && email;
+        return $scope.selectedMotivoSegnalazione && $scope.descrizione && $scope.email;
     };
 
     $scope.emailInviata = undefined;

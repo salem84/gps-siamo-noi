@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('NuovaSegnalazioneCtrl', function($scope, $location, DatiInvioSegnalazione, Linee, Twitter) {
+app.controller('SegnalazionePosizioneCtrl', function($scope, $location, DatiInvioSegnalazione, Linee, Twitter) {
     $scope.segnalazione = DatiInvioSegnalazione;
 
     $scope.linee = Linee.query(function() {
@@ -27,7 +27,7 @@ app.controller('NuovaSegnalazioneCtrl', function($scope, $location, DatiInvioSeg
                 
             
             });
-            $location.path('/segnalazioni/nuovo/fermata');
+            $location.path('/segnalazioni/posizione/fermata');
         }
     };
 
@@ -50,7 +50,7 @@ app.controller('NuovaSegnalazioneCtrl', function($scope, $location, DatiInvioSeg
 
 // STEP FERMATE 
 
-app.controller('NuovaSegnalazione_FermataCtrl', function($scope, $location, Linee, Twitter, DatiInvioSegnalazione) {
+app.controller('SegnalazionePosizione_FermataCtrl', function($scope, $location, Linee, Twitter, DatiInvioSegnalazione) {
     $scope.segnalazione = DatiInvioSegnalazione;
     $scope.currentStep = 2;
 
@@ -67,11 +67,11 @@ app.controller('NuovaSegnalazione_FermataCtrl', function($scope, $location, Line
     };
 
     $scope.cmdGoRiepilogo = function() {
-        $location.path('/segnalazioni/nuovo/riepilogo');
+        $location.path('/segnalazioni/posizione/riepilogo');
     };
 });
 
-app.controller('NuovaSegnalazione_RiepilogoCtrl', function($scope, $location, Twitter, DatiInvioSegnalazione, Auth) {
+app.controller('SegnalazionePosizione_RiepilogoCtrl', function($scope, $location, Twitter, DatiInvioSegnalazione, Auth) {
     $scope.segnalazione = DatiInvioSegnalazione;
     $scope.auth = Auth;
     $scope.currentStep = 3;

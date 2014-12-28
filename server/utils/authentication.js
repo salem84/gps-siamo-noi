@@ -11,8 +11,10 @@
 module.exports = {
     findOrCreateOauthUser: function (token, tokenSecret, profile, done) {
         //Verifico se già esiste l'utente su DB
-        User.findOne({ oauthID: profile.id }, function (err, user) {
-            if (err) { log.err(err); }
+        User.findOne({ oauthID: profile.id }, function(err, user) {
+            if (err) {
+                log.err(err);
+            }
             if (!err && user != null) {
                 //L'ho trovato, non faccio nulla
                 done(null, user);
@@ -28,7 +30,7 @@ module.exports = {
                     role: config.roles.USER,
                     created: Date.now()
                 });
-                user.save(function (err) {
+                user.save(function(err) {
                     if (err) {
                         log.err(err);
                     } else {
@@ -39,15 +41,17 @@ module.exports = {
             };
 
             return user;
-        })
+        });
     },
 
     findById: function (id, done) {
         //La chiave del record è un ObjectId
         var oId = new mongoose.Types.ObjectId(id);
         //Mi trovo il record su db
-        User.findOne({ _id: oId }, function (err, dbUser) {
-            if (err) { log.err(err); }
+        User.findOne({ _id: oId }, function(err, dbUser) {
+            if (err) {
+                log.err(err);
+            }
             if (!err && dbUser != null) {
                 //Quando lo trovo mi creo l'oggetto da tenere in memoria 
                 var user = new User({
@@ -62,12 +66,11 @@ module.exports = {
                 });
                 //Comunico il completamento
                 done(null, user);
-            }
-            else {
+            } else {
                 log.err('Trovato _id in sessione non esistente su DB');
                 done(null, false);
             }
-        })
+        });
     },
 
     twitterStrategy: function () {
