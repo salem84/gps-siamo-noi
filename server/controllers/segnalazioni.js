@@ -19,9 +19,10 @@ module.exports = {
         segnalazione.save(function (err) {
             if (err) {
                 log.err(err);
+                res.send(500);
             } else {
                 log.info("salvataggio segnalazione completato");
-
+                res.send(200);
             };
         });
     }
