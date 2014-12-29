@@ -20,8 +20,11 @@ app.controller('ContattaciCtrl', function($scope, Assistenza) {
 
     $scope.cmdInvia = function() {
         Assistenza.invia({ motivo: $scope.selectedMotivoSegnalazione, descrizione: $scope.descrizione, email: $scope.email },
-        function(result) {
-            
+        function (data) {
+            $scope.emailInviata = true;
+        },
+            function (err) {
+            $scope.emailInviata = false;
         });
     };
 });

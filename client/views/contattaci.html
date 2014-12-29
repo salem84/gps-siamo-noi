@@ -3,7 +3,7 @@
 
 
 <div class="container page-content top-buffer-xl">
-    <form role="form">
+    <form role="form" ng-show="emailInviata == undefined">
 
 
 
@@ -36,10 +36,10 @@
     <div class="alert alert-info" ng-show="emailInviata">
         Segnalazione inviata correttamente
     </div>
-    <div class="alert alert-danger" ng-show="emailInviata == 'false'">
+    <div class="alert alert-danger" ng-show="emailInviata == false">
         <p>
-            Si è verificato un errore nell'invio della segnalazione
+            Si &egrave; verificato un errore nell'invio della segnalazione
         </p>
-        <p>Riprovare più tardi</p>
+        <p>Riprovare pi&ugrave; tardi</p>
     </div>
 </div>

@@ -1,8 +1,10 @@
-﻿var config = require('../config');
-var sendgrid  = require('sendgrid')(config.sendgrid.api_user, config.sendgrid.api_key);
+﻿var config = require('../config'),
+    log = require('../logger.js'),
+    sendgrid = require('sendgrid')(config.sendgrid.api_user, config.sendgrid.api_key);
 
 module.exports = {
-    richiediAssistenza: function(req, res) {
+    richiediAssistenza: function (req, res) {
+        log.info('Invio email richiesta assistenza');
         var motivo = req.body.motivo,
             descrizione = req.body.descrizione,
             email = req.body.email;
@@ -19,12 +21,12 @@ module.exports = {
                 text: testo
             }, function(err, json) {
                 if (err) {
-                    console.error(err);
-                    res.send(500);
+                    log.err(err);
+                    res.status(500).end();
 
                 }
-                console.log(json);
-                res.send(200);
+                log.info(json);
+                res.status(200).end();
 
             });
     }
