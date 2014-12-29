@@ -8,12 +8,25 @@ try {
 
     var options = {
         user: config.db.user,
-        pass: config.db.password
+        pass: config.db.password,
+        replset: {
+            socketOptions: {
+                connectTimeoutMS: config.db.timeout,
+                socketTimeoutMS: config.db.timeout,
+                keepAlive: 1
+            }
+        },
+        server: {
+            socketOptions: {
+                keepAlive: 1
+            }
+        },
+        auto_reconnect: true
     }
     mongoose.connect(s_conn, options);
 
     // crea tabella utenti
-    var User = mongoose.model('User', {
+    var UserModel = mongoose.model('User', {
         provider: String,
         oauthID: Number,
         token: String,
@@ -25,7 +38,7 @@ try {
     });
 
     // crea tabella segnalazioni
-    var Segnalazione = mongoose.model('Segnalazione', {
+    var SegnalazioneModel = mongoose.model('Segnalazione', {
         linea: String,
         tipologia: String,
         descrizione: String,
@@ -40,9 +53,13 @@ try {
         });
     });
 
+    mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 } catch (e) {
     log.err('errore init database ' + e);
 }
 
-module.exports = User;
-module.exports = Segnalazione;
+module.exports = {
+    User : UserModel,
+    Segnalazione : SegnalazioneModel
+};

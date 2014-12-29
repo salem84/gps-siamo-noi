@@ -18,11 +18,15 @@ var express = require('express'),
     path = require('path'),
     fs = require('fs'),
     passport = require('passport'),
-    MongoStore = require('connect-mongo')(session),
+
     routes = require('./server/routes'),
     auth = require('./server/utils/authentication'),
     log = require('./server/logger'),
-    config = require('./server/config.js');
+    config = require('./server/config.js'),
+
+    db = require('./server/utils/database.js'),
+    mongoose = require('mongoose'),
+    MongoStore = require('connect-mongo')(session);
 
 var app = express();
 
@@ -48,17 +52,20 @@ app.use(cookieParser());
 //     }));
 
 app.use(session({
-  secret  : config.cookie_secret,
-  cookie  : {
-    maxAge  : 7 * 24 * 60 * 60 * 1000              // expire the session(-cookie) after # seconds
-  },
-  store   : new MongoStore({
-    host: config.db.host,
-    db: config.db.database,
-    port: config.db.port,
-    username: config.db.user,
-    password: config.db.password
-  })
+    secret: config.cookie_secret,
+    cookie: {
+        maxAge: 7 * 24 * 60 * 60 * 1000 // expire the session(-cookie) after # seconds
+    },
+    resave: true,
+    saveUninitialized: true,
+    //store   : new MongoStore({
+    //  host: config.db.host,
+    //  db: config.db.database,
+    //  port: config.db.port,
+    //  username: config.db.user,
+    //  password: config.db.password
+    //})
+    //store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 //altrimenti non carica i file statici

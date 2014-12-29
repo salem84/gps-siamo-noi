@@ -1,7 +1,7 @@
 ﻿var _ = require('underscore'),
     passport = require('passport'),
     TwitterStrategy = require('passport-twitter').Strategy,
-    User = require('../utils/database.js'),
+    db = require('../utils/database.js'),
     log = require('../logger.js'),
     mongoose = require('mongoose'), //TODO da spostare nella classe database
     config = require('../config.js');
@@ -10,8 +10,9 @@
 
 module.exports = {
     findOrCreateOauthUser: function (token, tokenSecret, profile, done) {
+        log.info("findOrCreateOauthUser profileId: " + profile.id);
         //Verifico se già esiste l'utente su DB
-        User.findOne({ oauthID: profile.id }, function(err, user) {
+        db.User.findOne({ oauthID: profile.id }, function(err, user) {
             if (err) {
                 log.err(err);
             }
@@ -20,7 +21,7 @@ module.exports = {
                 done(null, user);
             } else {
                 //E' la prima volta, allora creo il record su DB
-                var user = new User({
+                var user = new db.User({
                     provider: profile.provider,
                     oauthID: profile.id,
                     username: profile.username,
@@ -48,13 +49,13 @@ module.exports = {
         //La chiave del record è un ObjectId
         var oId = new mongoose.Types.ObjectId(id);
         //Mi trovo il record su db
-        User.findOne({ _id: oId }, function(err, dbUser) {
+        db.User.findOne({ _id: oId }, function(err, dbUser) {
             if (err) {
                 log.err(err);
             }
             if (!err && dbUser != null) {
                 //Quando lo trovo mi creo l'oggetto da tenere in memoria 
-                var user = new User({
+                var user = new db.User({
                     provider: dbUser.provider,
                     oauthID: dbUser.oauthID,
                     username: dbUser.username,

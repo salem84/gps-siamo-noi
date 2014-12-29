@@ -35,6 +35,7 @@ config.db.host = process.env.DB_HOST || 'localhost';
 config.db.port = process.env.DB_PORT || 27017;
 config.db.user = process.env.DB_USER;
 config.db.password = process.env.DB_PASSWORD;
+config.db.timeout = 60 * 1000; //Millisecondi
 
 //DB Produzione
 //config.db.host = 'ds030827.mongolab.com';

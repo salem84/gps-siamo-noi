@@ -43,6 +43,7 @@ DB_PORT=27017</Environment>
     <Content Include="client\views\404.html" />
     <Content Include="client\views\contattaci.html" />
     <Content Include="client\views\segnalazioni\problema\invia.html" />
+    <Content Include="IISNode.yml" />
     <Content Include="linee\14.json" />
     <Content Include="linee\19.json" />
     <Content Include="linee\2.json" />

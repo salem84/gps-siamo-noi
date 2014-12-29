@@ -1,4 +1,4 @@
-﻿var Segnalazione = require('../utils/database.js'),
+﻿var db = require('../utils/database.js'),
     log = require('../logger.js'),
     moment = require('moment-timezone');
 
@@ -10,7 +10,7 @@ module.exports = {
             descrizione = req.body.descrizione,
             ora = moment().tz('Europe/Rome').format();
 
-        var segnalazione = new Segnalazione(
+        var segnalazione = new db.Segnalazione(
         {
             linea: linea,
             tipologia: tipologia,
