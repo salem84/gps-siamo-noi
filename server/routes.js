@@ -87,6 +87,11 @@ var routes = [
         middleware: [AssistenzaCtrl.richiediAssistenza]
     },
     {
+        path: '/segnalazioni/:startDate/:endDate?',
+        httpMethod: 'GET',
+        middleware: [SegnalazioniCtrl.getSegnalazioni]
+    },
+    {
         path: '/segnalazioni',
         httpMethod: 'POST',
         middleware: [SegnalazioniCtrl.inviaSegnalazione]

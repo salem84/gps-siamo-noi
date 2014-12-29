@@ -27,6 +27,7 @@ DB_PORT=27017</Environment>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <None Include="Scripts\_references.js" />
+    <Compile Include="client\lib\moment-locale-it.js" />
     <Compile Include="client\scripts\controllers\c_segnalazioni_problema.js" />
     <Compile Include="server\controllers\segnalazioni.js" />
     <Compile Include="server\utils\database.js" />
@@ -42,6 +43,7 @@ DB_PORT=27017</Environment>
     <Content Include="client\images\view-details-128.png" />
     <Content Include="client\views\404.html" />
     <Content Include="client\views\contattaci.html" />
+    <Content Include="client\views\segnalazioni\lista\lista.html" />
     <Content Include="client\views\segnalazioni\problema\invia.html" />
     <Content Include="IISNode.yml" />
     <Content Include="linee\14.json" />
@@ -106,6 +108,7 @@ DB_PORT=27017</Environment>
     <Folder Include="client\" />
     <Folder Include="client\templates\" />
     <Folder Include="client\scripts\" />
+    <Folder Include="client\views\segnalazioni\lista\" />
     <Folder Include="client\views\segnalazioni\problema\" />
     <Folder Include="linee\" />
     <Folder Include="client\scripts\directives\" />

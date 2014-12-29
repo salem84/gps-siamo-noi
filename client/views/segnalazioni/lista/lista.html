@@ -1,0 +1,16 @@
+﻿<banner testo="Elenco Segnalazioni" />
+<div class="container page-content top-buffer-xl">
+    <form>
+        <div class="form-group">
+            <input type="radio" ng-model="infoReport" ng-value="week"> Report Settimanale <br />
+            <div>
+                <input type="radio" ng-model="infoReport" ng-value="giorni">
+                <span>Da: <input type="date" ng-model="giorni.da" /> a <input type="date" ng-model="giorni.a"/></span>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-xs-12 text-center">
+            <button type="button" class="btn btn-lg btn-primary" ng-click="cmdScaricaElencoSegnalazioni()">Scarica</button>
+        </div>
+    </form>
+</div>

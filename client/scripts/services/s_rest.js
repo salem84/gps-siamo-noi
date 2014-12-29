@@ -17,12 +17,18 @@ angular.module('gsn.services.rest', ['ngResource']).
     }).
     factory('Segnalazioni', function($resource) {
         return $resource('/api/segnalazioni/', {}, {
-            post: { method: 'POST' }
+        list: {
+            method: 'GET', 
+            url: '/api/segnalazioni/:startDate/:endDate?format=:format',  
+            params: { startDate: '', endDate: '', format: 'csv' }, 
+            isArray: true
+        },
+            invia: { method: 'POST' }
         });
     }).
     factory('Assistenza', function($resource) {
         return $resource('/api/assistenza/', {}, {
-            post: { method: 'POST' }
+            invia: { method: 'POST' }
         });
         //}).
         //factory('HttpAuth', function($http) {

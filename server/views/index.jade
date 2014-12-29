@@ -26,10 +26,11 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-sanitize.min.js')
-				
-
+		script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js')
+		
 		script(src='/lib/ui-bootstrap-tpls-0.9.0.min.js')
 		script(src='/lib/scrollability.min.js')
+		script(src='/lib/moment-locale-it.js')
 		
 		script(src='/scripts/utils.js')
 		script(src='/scripts/main.js')
@@ -88,7 +89,7 @@ html(lang='it', ng-app='gpsSiamoNoiApp')
 				div.collapse.navbar-collapse#bs-main-nav
 					ul.nav.navbar-nav.navbar-right
 						li
-							a(href='/segnalazioni/nuovo')='Segnala'
+							a(href='/segnalazioni/lista')='Lista segnalazioni'
 						li
 							a(href='/twitter/profili')='Profili'
 						li

@@ -19,7 +19,7 @@ app.controller('ContattaciCtrl', function($scope, Assistenza) {
     $scope.emailInviata = undefined;
 
     $scope.cmdInvia = function() {
-        Assistenza.post({ motivo: $scope.selectedMotivoSegnalazione, descrizione: $scope.descrizione, email: $scope.email },
+        Assistenza.invia({ motivo: $scope.selectedMotivoSegnalazione, descrizione: $scope.descrizione, email: $scope.email },
         function(result) {
             
         });

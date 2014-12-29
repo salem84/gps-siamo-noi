@@ -22,7 +22,7 @@ app.controller('SegnalazioneProblemaCtrl', function ($scope, Segnalazioni) {
     };
 
     $scope.cmdInviaSegnalazione = function() {
-        Segnalazioni.post({
+        Segnalazioni.invia({
                 linea: $scope.linea,
                 tipologia: $scope.selectedTipologia.nome,
                 descrizione: $scope.descrizione

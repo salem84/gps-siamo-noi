@@ -22,7 +22,7 @@ app.config(function($routeProvider, $locationProvider) {
         //     templateUrl: 'views/list.html', 
         //     controller: 'SegnalazioniListCtrl'
         //}).
-        when('/segnalazioni', {
+        when('/segnalazioni/tweets', {
             redirectTo: function() {
                 return '/twitter/profili/movesharing';
             }
@@ -54,6 +54,10 @@ app.config(function($routeProvider, $locationProvider) {
         when('/segnalazioni/problema', {
             templateUrl: '/views/segnalazioni/problema/invia.html',
             controller: 'SegnalazioneProblemaCtrl'
+        }).
+        when('/segnalazioni/lista', {
+            templateUrl: '/views/segnalazioni/lista/lista.html',
+            controller: 'SegnalazioniListCtrl'
         }).
         when('/auth/twitter', {
             templateUrl: '/views/auth/twitterAuth.html',

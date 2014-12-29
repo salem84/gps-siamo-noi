@@ -65,7 +65,7 @@ app.use(session({
     //  username: config.db.user,
     //  password: config.db.password
     //})
-    //store: new MongoStore({ mongooseConnection: mongoose.connection })
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 //altrimenti non carica i file statici
