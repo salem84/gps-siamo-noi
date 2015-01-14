@@ -512,3 +512,9 @@ a {
         display: none;
     }
 }
+
+@media screen and (max-height: 500px) {
+    #terzo-step-request .alert-info {
+        display: none;
+    }
+}
