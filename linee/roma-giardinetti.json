@@ -19,7 +19,7 @@
             "ordine": 2,
             "latitudine": "41.8946544",
             "longitudine": "12.5103279",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "267349156",
             "codice": "",
@@ -34,7 +34,7 @@
             "ordine": 4,
             "latitudine": "41.8892477",
             "longitudine": "12.5220468",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "1152567265",
             "codice": "",
@@ -64,7 +64,7 @@
             "ordine": 8,
             "latitudine": "41.8812504",
             "longitudine": "12.5391241",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "1152574058",
             "codice": "",
@@ -107,7 +107,7 @@
             "ordine": 14,
             "latitudine": "41.8720262",
             "longitudine": "12.5768233",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "610258134",
             "codice": "",
@@ -129,7 +129,7 @@
             "ordine": 17,
             "latitudine": "41.8672181",
             "longitudine": "12.5931797",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "610258171",
             "codice": "",
@@ -169,7 +169,7 @@
             "ordine": 3,
             "latitudine": "41.8673605",
             "longitudine": "12.5923232",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "1153110779",
             "codice": "",
@@ -191,7 +191,7 @@
             "ordine": 6,
             "latitudine": "41.8722059",
             "longitudine": "12.5760368",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "1153110949",
             "codice": "",
@@ -234,7 +234,7 @@
             "ordine": 12,
             "latitudine": "41.8818131",
             "longitudine": "12.5374871",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "458041174",
             "codice": "",
@@ -264,7 +264,7 @@
             "ordine": 16,
             "latitudine": "41.8892895",
             "longitudine": "12.5221036",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "610909092",
             "codice": "",
@@ -279,7 +279,7 @@
             "ordine": 18,
             "latitudine": "41.8946921",
             "longitudine": "12.5103557",
-			"visibile": true
+			"visibile": false
         }, {
             "id_node": "267349153",
             "codice": "",
